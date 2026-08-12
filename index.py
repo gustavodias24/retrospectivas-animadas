@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+import secrets
+
+from flask import Flask, g, render_template
 
 
 app = Flask(__name__)
@@ -9,12 +11,18 @@ CHECKOUT_URL = (
 YOUTUBE_VIDEO_ID = "MK6VgU0MLDY"
 
 
+@app.before_request
+def set_csp_nonce():
+    g.csp_nonce = secrets.token_urlsafe(18)
+
+
 @app.get("/")
 def home():
     return render_template(
         "index.html",
         checkout_url=CHECKOUT_URL,
         youtube_video_id=YOUTUBE_VIDEO_ID,
+        csp_nonce=g.csp_nonce,
     )
 
 
@@ -36,7 +44,7 @@ def add_security_headers(response):
             "default-src 'self'",
             "img-src 'self' data:",
             "style-src 'self'",
-            "script-src 'self'",
+            f"script-src 'self' 'nonce-{g.csp_nonce}'",
             "frame-src https://www.youtube-nocookie.com https://www.youtube.com",
             "connect-src 'self'",
             "font-src 'self'",
