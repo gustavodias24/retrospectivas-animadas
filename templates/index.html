@@ -467,64 +467,886 @@
   </header>
 
   <main id="conteudo">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true">
-        <img src="{{ url_for('static', filename='img/hero-bg.webp') }}" alt="" width="1600" height="1000" fetchpriority="high">
+    <style>
+  /* HERO ISOLADO - NÃO HERDA O GRID/LARGURAS ANTIGAS */
+  .hero-mobile-safe,
+  .hero-mobile-safe *,
+  .hero-mobile-safe *::before,
+  .hero-mobile-safe *::after {
+    box-sizing: border-box;
+  }
+
+  .hero-mobile-safe {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 120px 0 70px;
+    overflow: hidden;
+    background: #090a0c;
+    color: #fff;
+  }
+
+  .hero-mobile-safe__background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-mobile-safe__background img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .48;
+  }
+
+  .hero-mobile-safe__inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 40px));
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+    align-items: center;
+    gap: 60px;
+
+    min-width: 0;
+  }
+
+  .hero-mobile-safe__copy,
+  .hero-mobile-safe__visual {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    transform: none !important;
+  }
+
+  /* MINI LOGO */
+  .hero-mobile-safe__lockup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 24px;
+  }
+
+  .hero-mobile-safe__lockup img {
+    display: block;
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  .hero-mobile-safe__lockup-text {
+    min-width: 0;
+  }
+
+  .hero-mobile-safe__lockup strong,
+  .hero-mobile-safe__lockup span {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .hero-mobile-safe__lockup strong {
+    font-size: 15px;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .hero-mobile-safe__lockup span {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255,255,255,.68);
+  }
+
+  /* BLOCO R$ 5.000 */
+  .hero-mobile-safe__income {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0 0 34px;
+    padding: 22px 24px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 112, 44, .62);
+    border-left: 5px solid #ff5a2c;
+    border-radius: 18px;
+
+    background:
+      radial-gradient(circle at 80% 20%, rgba(255,90,44,.12), transparent 38%),
+      linear-gradient(135deg, rgba(71,31,16,.78), rgba(23,16,14,.94));
+  }
+
+  .hero-mobile-safe__income-kicker {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    line-height: 1.35;
+    font-weight: 800;
+    letter-spacing: .14em;
+
+    color: #ffd1bd;
+    white-space: normal;
+  }
+
+  .hero-mobile-safe__income-value {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 5px 10px;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: .95;
+    font-weight: 900;
+    letter-spacing: -.045em;
+
+    color: #fff;
+    white-space: normal;
+  }
+
+  .hero-mobile-safe__income-value small {
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: .02em;
+    color: #ffb347;
+  }
+
+  .hero-mobile-safe__income p {
+    width: 100%;
+    max-width: 100%;
+    margin: 13px 0 0;
+
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255,255,255,.76);
+
+    white-space: normal;
+    overflow-wrap: normal;
+  }
+
+  /* TÍTULO */
+  .hero-mobile-safe__title {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0 0 20px;
+    padding: 0;
+
+    font-size: clamp(48px, 5.5vw, 76px);
+    line-height: .96;
+    letter-spacing: -.055em;
+    font-weight: 900;
+
+    color: #f5f2ef;
+
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+
+    transform: none !important;
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .hero-mobile-safe__title em {
+    display: inline;
+    color: #ff572d;
+    font-style: normal;
+  }
+
+  .hero-mobile-safe__lead {
+    width: 100%;
+    max-width: 680px;
+
+    margin: 0 0 24px;
+
+    color: rgba(255,255,255,.76);
+    font-size: 17px;
+    line-height: 1.7;
+
+    white-space: normal;
+  }
+
+  .hero-mobile-safe__lead strong {
+    color: #fff;
+  }
+
+  /* BENEFÍCIOS */
+  .hero-mobile-safe__points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 0 28px;
+  }
+
+  .hero-mobile-safe__point {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 14px;
+    line-height: 1.35;
+    color: rgba(255,255,255,.9);
+  }
+
+  .hero-mobile-safe__point svg {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+
+    fill: none;
+    stroke: #ff6338;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* OFERTA */
+  .hero-mobile-safe__offer {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin-top: 8px;
+  }
+
+  .hero-mobile-safe__price {
+    flex: 0 0 auto;
+  }
+
+  .hero-mobile-safe__price > small,
+  .hero-mobile-safe__price > span {
+    display: block;
+    color: rgba(255,255,255,.6);
+    font-size: 12px;
+  }
+
+  .hero-mobile-safe__price > strong {
+    display: block;
+    margin: 2px 0;
+
+    font-size: 38px;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .hero-mobile-safe__price sup {
+    font-size: 17px;
+  }
+
+  .hero-mobile-safe__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 56px;
+    max-width: 100%;
+
+    padding: 14px 24px;
+
+    border-radius: 14px;
+
+    background: #ff572d;
+    color: #fff;
+
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 800;
+
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-mobile-safe__button svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+  }
+
+  .hero-mobile-safe__secure,
+  .hero-mobile-safe__disclaimer {
+    width: 100%;
+    max-width: 100%;
+
+    white-space: normal;
+  }
+
+  .hero-mobile-safe__secure {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin: 16px 0 0;
+
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(255,255,255,.56);
+  }
+
+  .hero-mobile-safe__secure svg {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  .hero-mobile-safe__disclaimer {
+    margin: 10px 0 0;
+
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(255,255,255,.42);
+  }
+
+  /* FOTO DO JÚLIO */
+  .hero-mobile-safe__photo {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    border-radius: 28px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,90,44,.36);
+    box-shadow: 0 24px 80px rgba(0,0,0,.38);
+  }
+
+  .hero-mobile-safe__photo img {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none !important;
+  }
+
+  .hero-mobile-safe__scroll {
+    position: absolute;
+    z-index: 3;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 26px;
+    height: 36px;
+
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 20px;
+  }
+
+  .hero-mobile-safe__scroll span {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+    background: #ff572d;
+
+    transform: translateX(-50%);
+  }
+
+
+  /* =====================================================
+     MOBILE
+     ===================================================== */
+
+  @media (max-width: 768px) {
+
+    .hero-mobile-safe {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      padding: 105px 0 100px !important;
+
+      margin: 0 !important;
+
+      overflow-x: hidden !important;
+    }
+
+    .hero-mobile-safe__inner {
+      display: flex !important;
+      flex-direction: column !important;
+
+      width: calc(100% - 32px) !important;
+      max-width: none !important;
+      min-width: 0 !important;
+
+      margin: 0 16px !important;
+      padding: 0 !important;
+
+      gap: 38px !important;
+
+      transform: none !important;
+    }
+
+    .hero-mobile-safe__copy,
+    .hero-mobile-safe__visual {
+      display: block !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+
+      margin: 0 !important;
+      padding: 0 !important;
+
+      position: static !important;
+      left: auto !important;
+      right: auto !important;
+
+      transform: none !important;
+    }
+
+    .hero-mobile-safe__lockup {
+      display: none;
+    }
+
+    .hero-mobile-safe__income {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      margin: 0 0 28px !important;
+      padding: 18px 16px !important;
+
+      transform: none !important;
+    }
+
+    .hero-mobile-safe__income-kicker {
+      font-size: 10px !important;
+      line-height: 1.35 !important;
+      letter-spacing: .11em !important;
+    }
+
+    .hero-mobile-safe__income-value {
+      display: flex !important;
+      align-items: baseline !important;
+      flex-wrap: wrap !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+
+      gap: 4px 7px !important;
+
+      font-size: clamp(35px, 12vw, 52px) !important;
+      line-height: 1 !important;
+
+      white-space: normal !important;
+    }
+
+    .hero-mobile-safe__income-value small {
+      font-size: 11px !important;
+    }
+
+    .hero-mobile-safe__income p {
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+    }
+
+    .hero-mobile-safe__title {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+
+      margin: 0 0 20px !important;
+      padding: 0 !important;
+
+      font-size: clamp(34px, 10vw, 45px) !important;
+      line-height: 1.03 !important;
+      letter-spacing: -.045em !important;
+
+      text-align: center !important;
+
+      white-space: normal !important;
+      word-break: normal !important;
+      overflow-wrap: normal !important;
+
+      transform: none !important;
+      translate: none !important;
+
+      position: static !important;
+      left: auto !important;
+      right: auto !important;
+    }
+
+    .hero-mobile-safe__title em {
+      display: inline !important;
+      white-space: normal !important;
+    }
+
+    .hero-mobile-safe__lead {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      margin: 0 auto 22px !important;
+
+      font-size: 15px !important;
+      line-height: 1.65 !important;
+
+      text-align: center !important;
+    }
+
+    .hero-mobile-safe__points {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+
+      gap: 10px !important;
+    }
+
+    .hero-mobile-safe__point {
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .hero-mobile-safe__offer {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+
+      gap: 16px !important;
+    }
+
+    .hero-mobile-safe__price {
+      width: 100% !important;
+      text-align: center !important;
+    }
+
+    .hero-mobile-safe__button {
+      width: 100% !important;
+      max-width: 100% !important;
+
+      padding: 16px !important;
+    }
+
+    .hero-mobile-safe__secure {
+      justify-content: center !important;
+      text-align: center !important;
+    }
+
+    .hero-mobile-safe__disclaimer {
+      text-align: center !important;
+    }
+
+    .hero-mobile-safe__visual {
+      order: 2;
+    }
+
+    .hero-mobile-safe__photo {
+      width: 100% !important;
+      max-width: 430px !important;
+
+      margin: 0 auto !important;
+
+      border-radius: 22px !important;
+    }
+
+    .hero-mobile-safe__photo img {
+      display: block !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+
+      object-fit: contain !important;
+
+      transform: none !important;
+      scale: 1 !important;
+    }
+
+    .hero-mobile-safe__scroll {
+      display: none;
+    }
+  }
+
+
+  @media (max-width: 420px) {
+
+    .hero-mobile-safe {
+      padding-top: 95px !important;
+    }
+
+    .hero-mobile-safe__inner {
+      width: calc(100% - 28px) !important;
+      margin-left: 14px !important;
+      margin-right: 14px !important;
+    }
+
+    .hero-mobile-safe__income {
+      padding: 16px 14px !important;
+    }
+
+    .hero-mobile-safe__income-value {
+      font-size: clamp(32px, 11.5vw, 44px) !important;
+    }
+
+    .hero-mobile-safe__title {
+      font-size: clamp(31px, 9.6vw, 39px) !important;
+      line-height: 1.05 !important;
+      letter-spacing: -.038em !important;
+    }
+  }
+
+
+  @media (max-width: 360px) {
+
+    .hero-mobile-safe__inner {
+      width: calc(100% - 24px) !important;
+      margin-left: 12px !important;
+      margin-right: 12px !important;
+    }
+
+    .hero-mobile-safe__income-value {
+      font-size: 31px !important;
+    }
+
+    .hero-mobile-safe__title {
+      font-size: 29px !important;
+      line-height: 1.07 !important;
+    }
+
+    .hero-mobile-safe__lead {
+      font-size: 14px !important;
+    }
+  }
+</style>
+
+
+<section
+  class="hero-mobile-safe"
+  id="inicio"
+  aria-labelledby="hero-title"
+>
+
+  <div class="hero-mobile-safe__background" aria-hidden="true">
+    <img
+      src="{{ url_for('static', filename='img/hero-bg.webp') }}"
+      alt=""
+      width="1600"
+      height="1000"
+      fetchpriority="high"
+    >
+  </div>
+
+
+  <div class="hero-mobile-safe__inner">
+
+    <!-- CONTEÚDO -->
+    <div class="hero-mobile-safe__copy">
+
+      <div class="hero-mobile-safe__lockup">
+        <img
+          src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}"
+          alt="Retrospectiva Animada"
+          width="640"
+          height="640"
+        >
+
+        <div class="hero-mobile-safe__lockup-text">
+          <strong>Sua história merece ser revivida</strong>
+          <span>Aprenda uma habilidade criativa, prática e vendável</span>
+        </div>
       </div>
-      <div class="hero-orb hero-orb--one" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb--two" aria-hidden="true"></div>
 
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="hero-logo-lockup">
-            <img src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada" width="640" height="640">
-            <div><strong>Sua história merece ser revivida</strong><span>Aprenda uma habilidade criativa, prática e vendável</span></div>
-          </div>
 
-          <div class="hero-income-highlight" aria-label="Destaque de renda extra">
-            <span class="hero-income-kicker">APRENDA A CRIAR E BUSQUE UMA RENDA EXTRA</span>
-            <strong><small>ATÉ</small> R$ 5.000 <small>/ MÊS*</small></strong>
-            <p>criando retrospectivas animadas para aniversários, casamentos, formaturas e homenagens.</p>
-          </div>
+      <div
+        class="hero-mobile-safe__income"
+        aria-label="Destaque de renda extra"
+      >
+        <span class="hero-mobile-safe__income-kicker">
+          APRENDA A CRIAR E BUSQUE UMA RENDA EXTRA
+        </span>
 
-          <h1 id="hero-title">Crie vídeos com fotos que emocionam — e transforme isso em <em>renda extra.</em></h1>
-          <p class="hero-lead">Comece do zero usando apenas seu <strong>celular ou computador</strong>. Aulas gravadas em vídeo, método passo a passo, retrospectivas editáveis e suporte para você aprender no seu ritmo.</p>
+        <strong class="hero-mobile-safe__income-value">
+          <small>ATÉ</small>
+          R$ 5.000
+          <small>/ MÊS*</small>
+        </strong>
 
-          <div class="hero-points" aria-label="Principais benefícios">
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Sem precisar aparecer</span>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Trabalhe de casa</span>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Comece com o que já tem</span>
-          </div>
+        <p>
+          criando retrospectivas animadas para aniversários,
+          casamentos, formaturas e homenagens.
+        </p>
+      </div>
 
-          <div class="hero-offer">
-            <div class="price-lockup">
-              <small>De <s>R$ 297</s> por</small>
-              <strong><sup>R$</sup> 97</strong>
-              <span>pagamento único</span>
-            </div>
-            <a class="button button--primary button--large" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">
-              Quero começar agora
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-            </a>
-          </div>
-          <p class="secure-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg> Compra processada em ambiente seguro pela Hotmart</p>
-          <p class="income-disclaimer">*O valor de R$ 5.000/mês é um potencial apresentado no material do curso. Resultados variam e não são garantidos.</p>
+
+      <h1
+        class="hero-mobile-safe__title"
+        id="hero-title"
+      >
+        Crie vídeos com fotos que emocionam — e transforme isso em
+        <em>renda extra.</em>
+      </h1>
+
+
+      <p class="hero-mobile-safe__lead">
+        Comece do zero usando apenas seu
+        <strong>celular ou computador</strong>.
+        Aulas gravadas em vídeo, método passo a passo,
+        retrospectivas editáveis e suporte para você aprender no seu ritmo.
+      </p>
+
+
+      <div
+        class="hero-mobile-safe__points"
+        aria-label="Principais benefícios"
+      >
+
+        <span class="hero-mobile-safe__point">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 12 4 4L19 6"/>
+          </svg>
+          Sem precisar aparecer
+        </span>
+
+        <span class="hero-mobile-safe__point">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 12 4 4L19 6"/>
+          </svg>
+          Trabalhe de casa
+        </span>
+
+        <span class="hero-mobile-safe__point">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 12 4 4L19 6"/>
+          </svg>
+          Comece com o que já tem
+        </span>
+
+      </div>
+
+
+      <div class="hero-mobile-safe__offer">
+
+        <div class="hero-mobile-safe__price">
+          <small>De <s>R$ 297</s> por</small>
+          <strong><sup>R$</sup> 97</strong>
+          <span>pagamento único</span>
         </div>
 
-        <div class="hero-visual reveal reveal--delay">
-          <div class="portrait-stage portrait-stage--photo">
-            <div class="portrait-ring" aria-hidden="true"></div>
-            <div class="portrait-photo-frame">
-              <img src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}" alt="Júlio Neves, criador do curso Retrospectiva Animada" width="1400" height="1400" fetchpriority="high">
-            </div>
-          </div>
-        </div>
+        <a
+          class="hero-mobile-safe__button"
+          href="{{ checkout_url }}"
+          target="_blank"
+          rel="sponsored nofollow noopener"
+        >
+          Quero começar agora
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+
       </div>
 
-      <a class="scroll-cue" href="#oportunidade" aria-label="Conhecer os benefícios do curso">
-        <span></span>
-      </a>
-    </section>
+
+      <p class="hero-mobile-safe__secure">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/>
+        </svg>
+
+        Compra processada em ambiente seguro pela Hotmart
+      </p>
+
+
+      <p class="hero-mobile-safe__disclaimer">
+        *O valor de R$ 5.000/mês é um potencial apresentado no material
+        do curso. Resultados variam e não são garantidos.
+      </p>
+
+    </div>
+
+
+    <!-- FOTO DO JÚLIO SEM NENHUM ELEMENTO POR CIMA -->
+    <div class="hero-mobile-safe__visual">
+
+      <div class="hero-mobile-safe__photo">
+
+        <img
+          src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}"
+          alt="Júlio Neves, criador do curso Retrospectiva Animada"
+          width="1400"
+          height="1400"
+          fetchpriority="high"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <a
+    class="hero-mobile-safe__scroll"
+    href="#oportunidade"
+    aria-label="Conhecer os benefícios do curso"
+  >
+    <span></span>
+  </a>
+
+</section>
 
     <section class="promise-strip" aria-label="Resumo do curso">
       <div class="container promise-grid">
