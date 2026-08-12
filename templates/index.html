@@ -13,6 +13,353 @@
   <meta property="og:image" content="{{ url_for('static', filename='img/logo-retrospectiva.webp', _external=True) }}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23090a0c%22/><path d=%22M16 20h32v24H16z%22 fill=%22none%22 stroke=%22%23ff5a2c%22 stroke-width=%225%22/><path d=%22m27 26 13 6-13 7z%22 fill=%22%23ffb347%22/></svg>">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Correções responsivas: evita cortes e rolagem horizontal no mobile -->
+  <style>
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-x: clip;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    img,
+    video,
+    iframe,
+    svg {
+      max-width: 100%;
+    }
+
+    img,
+    video {
+      height: auto;
+    }
+
+    main,
+    section,
+    header,
+    footer,
+    .container,
+    .hero-grid,
+    .hero-copy,
+    .hero-visual {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 82px;
+      }
+
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+      }
+
+      .site-header,
+      .header-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .header-inner {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+      }
+
+      .brand {
+        min-width: 0 !important;
+        max-width: calc(100% - 58px) !important;
+      }
+
+      .brand-logo {
+        flex: 0 0 auto !important;
+        max-width: 42px !important;
+        height: auto !important;
+      }
+
+      .brand-copy {
+        min-width: 0 !important;
+      }
+
+      .header-cta {
+        display: none !important;
+      }
+
+      .nav-toggle {
+        flex: 0 0 auto !important;
+      }
+
+      .main-nav {
+        box-sizing: border-box !important;
+        width: calc(100% - 32px) !important;
+        max-width: none !important;
+        left: 16px !important;
+        right: 16px !important;
+      }
+
+      .hero {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        overflow: hidden !important;
+      }
+
+      .hero-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 28px !important;
+      }
+
+      .hero-copy,
+      .hero-visual,
+      .portrait-stage,
+      .portrait-stage--photo,
+      .portrait-photo-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .hero-logo-lockup {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .hero-logo-lockup > div {
+        min-width: 0 !important;
+      }
+
+      .hero-income-highlight {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        transform: none !important;
+        padding: 18px 16px !important;
+      }
+
+      .hero-income-kicker,
+      .hero-income-highlight p,
+      .hero-lead,
+      .income-disclaimer,
+      .secure-note {
+        max-width: 100% !important;
+        overflow-wrap: break-word;
+        word-break: normal;
+      }
+
+      .hero-income-highlight strong {
+        max-width: 100% !important;
+        white-space: normal !important;
+        font-size: clamp(2rem, 10vw, 3.25rem) !important;
+        line-height: 1 !important;
+      }
+
+      #hero-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        font-size: clamp(2.55rem, 12vw, 4rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: -0.045em !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        hyphens: auto;
+      }
+
+      #hero-title em {
+        display: inline;
+      }
+
+      .hero-points {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex-wrap: wrap !important;
+      }
+
+      .hero-offer {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .button,
+      .button--large,
+      .button--primary,
+      .button--outline {
+        max-width: 100% !important;
+        white-space: normal !important;
+      }
+
+      .opportunity-banner,
+      .attention-grid,
+      .promise-grid,
+      .split-grid,
+      .process-grid,
+      .timeline-showcase,
+      .memory-grid,
+      .benefits-grid,
+      .audience-grid,
+      .instructor-grid,
+      .offer-card,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        max-width: 100% !important;
+      }
+
+      .opportunity-banner > *,
+      .attention-grid > *,
+      .promise-grid > *,
+      .split-grid > *,
+      .process-grid > *,
+      .timeline-showcase > *,
+      .memory-grid > *,
+      .benefits-grid > *,
+      .audience-grid > *,
+      .instructor-grid > *,
+      .offer-card > *,
+      .faq-grid > *,
+      .footer-grid > * {
+        min-width: 0 !important;
+        max-width: 100% !important;
+      }
+
+      .opportunity-banner__number,
+      .media-card,
+      .video-layout,
+      .video-shell,
+      .timeline-showcase,
+      .audience-visual,
+      .instructor-visual,
+      .checkout-card,
+      .accordion,
+      .final-cta .container {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .video-shell img,
+      .media-card img,
+      .process-image img,
+      .memory-card img,
+      .benefit-card img,
+      .audience-main,
+      .instructor-photo-card img,
+      .final-cta > img {
+        max-width: 100% !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      li,
+      a,
+      summary,
+      strong,
+      span {
+        overflow-wrap: break-word;
+      }
+
+      .mobile-buy-bar {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: none !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        margin: 0 !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      .mobile-buy-bar > div {
+        min-width: 0 !important;
+      }
+
+      .mobile-buy-bar a {
+        max-width: 58% !important;
+        white-space: nowrap !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      #hero-title {
+        font-size: clamp(2.35rem, 11.5vw, 3.1rem) !important;
+        line-height: 1 !important;
+        letter-spacing: -0.04em !important;
+      }
+
+      .hero-income-kicker {
+        font-size: 0.68rem !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.11em !important;
+      }
+
+      .hero-income-highlight strong {
+        font-size: clamp(2.15rem, 11vw, 3rem) !important;
+      }
+
+      .hero-points {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 10px !important;
+      }
+
+      .hero-offer {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 14px !important;
+      }
+
+      .hero-offer .button {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
+      .opportunity-banner,
+      .offer-card {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      .mobile-buy-bar {
+        gap: 10px !important;
+      }
+
+      .mobile-buy-bar a {
+        flex: 0 1 auto !important;
+        max-width: 62% !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
