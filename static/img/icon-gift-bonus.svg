@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="t d">
+  <title id="t">Pacote bônus</title>
+  <desc id="d">Caixa presente com brilho laranja e dourado.</desc>
+  <defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb347"/><stop offset="1" stop-color="#ff4c23"/></linearGradient></defs>
+  <path d="M74 153h252v176H74z" fill="#121419" stroke="url(#a)" stroke-width="8"/>
+  <path d="M54 116h292v64H54z" fill="#191b20" stroke="url(#a)" stroke-width="8"/>
+  <path d="M179 116v213M221 116v213" stroke="#ff5a2c" stroke-width="10"/>
+  <path d="M200 112c-64-2-85-29-70-55 16-28 62 2 70 55Zm0 0c64-2 85-29 70-55-16-28-62 2-70 55Z" fill="none" stroke="#ffb347" stroke-width="8" stroke-linejoin="round"/>
+  <path d="m309 66 8 16 17 8-17 8-8 17-8-17-17-8 17-8z" fill="#ffb347"/>
+</svg>

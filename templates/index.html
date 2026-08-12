@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retrospectiva Animada | Transforme histórias em vídeos que emocionam</title>
+  <meta name="description" content="Aprenda do zero a criar retrospectivas animadas pelo celular ou computador, com aulas práticas, materiais editáveis e suporte exclusivo.">
+  <meta name="theme-color" content="#090a0c">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Retrospectiva Animada">
+  <meta property="og:description" content="Sua história merece ser revivida — e essa habilidade pode se transformar em renda extra.">
+  <meta property="og:image" content="{{ url_for('static', filename='img/hero-bg.webp', _external=True) }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23090a0c%22/><path d=%22M16 20h32v24H16z%22 fill=%22none%22 stroke=%22%23ff5a2c%22 stroke-width=%225%22/><path d=%22m27 26 13 6-13 7z%22 fill=%22%23ffb347%22/></svg>">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Retrospectiva Animada",
+    "description": "Curso online com aulas gravadas para aprender a criar retrospectivas animadas pelo celular ou computador.",
+    "provider": {
+      "@type": "Person",
+      "name": "Júlio Neves"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "97.00",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "url": {{ checkout_url|tojson }}
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Retrospectiva Animada — início">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-copy"><strong>Retrospectiva</strong><em>Animada</em></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle>
+        <span class="sr-only">Abrir menu</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal" data-nav>
+        <a href="#curso">O curso</a>
+        <a href="#para-quem">Para quem é</a>
+        <a href="#conteudo-curso">Conteúdo</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+
+      <a class="button button--compact header-cta" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">
+        Quero começar
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="{{ url_for('static', filename='img/hero-bg.webp') }}" alt="" width="1600" height="1000" fetchpriority="high">
+      </div>
+      <div class="hero-orb hero-orb--one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--two" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> Do zero à sua primeira retrospectiva</p>
+          <h1 id="hero-title">Sua história merece ser <em>revivida.</em></h1>
+          <p class="hero-lead">Aprenda a criar retrospectivas animadas que emocionam e transforme uma habilidade criativa em uma nova possibilidade de renda — usando apenas seu celular ou computador.</p>
+
+          <div class="hero-points" aria-label="Principais benefícios">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Método direto</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Aulas gravadas</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Materiais editáveis</span>
+          </div>
+
+          <div class="hero-offer">
+            <div class="price-lockup">
+              <small>De <s>R$ 297</s> por</small>
+              <strong><sup>R$</sup> 97</strong>
+              <span>pagamento único</span>
+            </div>
+            <a class="button button--primary button--large" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">
+              Quero começar agora
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+          <p class="secure-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg> Compra processada em ambiente seguro pela Hotmart</p>
+        </div>
+
+        <div class="hero-visual reveal reveal--delay">
+          <div class="portrait-stage">
+            <div class="portrait-ring" aria-hidden="true"></div>
+            <img src="{{ url_for('static', filename='img/julio-portrait.webp') }}" alt="Júlio Neves, criador do curso Retrospectiva Animada" width="435" height="613">
+            <div class="floating-card floating-card--top">
+              <span class="pulse-dot"></span>
+              <strong>100% online</strong>
+              <small>Assista no seu ritmo</small>
+            </div>
+            <div class="floating-card floating-card--bottom">
+              <strong>Aulas + bônus</strong>
+              <small>Conteúdo prático</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#video" aria-label="Ir para o vídeo de apresentação">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="promise-strip" aria-label="Resumo do curso">
+      <div class="container promise-grid">
+        <div><strong>Comece do zero</strong><span>Sem experiência prévia</span></div>
+        <div><strong>Celular ou computador</strong><span>Use o que já tem</span></div>
+        <div><strong>Aulas em vídeo</strong><span>Aprendizado no seu ritmo</span></div>
+        <div class="promise-action"><a href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Garantir acesso <span>→</span></a></div>
+      </div>
+    </section>
+
+    <section class="section video-section" id="video" aria-labelledby="video-title">
+      <div class="container narrow center reveal">
+        <p class="eyebrow eyebrow--center"><span></span> Aperte o play</p>
+        <h2 id="video-title">Veja como essa habilidade pode <em>ganhar vida</em></h2>
+        <p class="section-lead">Conheça a proposta do curso e descubra por que retrospectivas transformam fotos comuns em experiências que as pessoas guardam para sempre.</p>
+      </div>
+
+      <div class="container video-layout reveal">
+        <button class="video-shell" type="button" data-video-id="{{ youtube_video_id }}" aria-label="Reproduzir vídeo de apresentação do curso">
+          <img src="{{ url_for('static', filename='img/filmstrip-glow.webp') }}" alt="Composição cinematográfica de fotografias e luzes" width="1400" height="788" loading="lazy">
+          <span class="video-overlay" aria-hidden="true"></span>
+          <span class="play-button" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m12 9 11 7-11 7z"/></svg></span>
+          <span class="video-label"><small>Vídeo de apresentação</small><strong>Descubra o método</strong></span>
+        </button>
+      </div>
+
+      <div class="section-cta center reveal">
+        <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Gostei, quero aprender agora <span>→</span></a>
+        <small>Acesso ao checkout oficial da Hotmart</small>
+      </div>
+    </section>
+
+    <section class="section section--contrast" id="curso" aria-labelledby="opportunity-title">
+      <div class="container split-grid">
+        <div class="media-card reveal">
+          <img src="{{ url_for('static', filename='img/creator-workspace.webp') }}" alt="Criador editando uma retrospectiva em casa" width="1200" height="900" loading="lazy">
+          <div class="media-badge"><strong>Uma habilidade.</strong><span>Muitas histórias.</span></div>
+        </div>
+        <div class="content-stack reveal reveal--delay">
+          <p class="eyebrow"><span></span> Histórias têm valor</p>
+          <h2 id="opportunity-title">Você já percebeu como toda celebração precisa de algo <em>especial?</em></h2>
+          <p>Casamentos, aniversários, formaturas e homenagens acontecem todos os dias. Por trás de cada evento, existe alguém procurando uma forma bonita de contar aquela história.</p>
+          <div class="quote-card">
+            <span class="quote-mark">“</span>
+            <p>Agora imagine ser a pessoa que transforma essas memórias em vídeos emocionantes — sem precisar aparecer e começando com o equipamento que já possui.</p>
+          </div>
+          <div class="income-claim">
+            <strong>Potencial de até R$ 5 mil/mês*</strong>
+            <span>Possibilidade apresentada no material do curso; não representa promessa ou garantia de resultado.</span>
+          </div>
+          <ul class="check-list">
+            <li><span>01</span><p><strong>Crie de qualquer lugar</strong> com um fluxo de produção acessível.</p></li>
+            <li><span>02</span><p><strong>Monte seu portfólio</strong> com materiais prontos para editar.</p></li>
+            <li><span>03</span><p><strong>Ofereça um serviço</strong> ligado a momentos de alto valor emocional.</p></li>
+          </ul>
+          <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero transformar histórias <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="como-funciona" aria-labelledby="process-title">
+      <div class="container section-heading reveal">
+        <div>
+          <p class="eyebrow"><span></span> Simples e prático</p>
+          <h2 id="process-title">Do arquivo de fotos ao vídeo que <em>emociona</em></h2>
+        </div>
+        <p>Um caminho visual para organizar, editar e entregar retrospectivas com confiança, mesmo que você esteja começando agora.</p>
+      </div>
+
+      <div class="container process-grid">
+        <article class="process-card reveal">
+          <div class="process-image"><img src="{{ url_for('static', filename='img/mobile-editing.webp') }}" alt="Edição de memórias pelo celular" width="900" height="1100" loading="lazy"></div>
+          <span class="step-number">01</span>
+          <h3>Organize as memórias</h3>
+          <p>Selecione fotos, vídeos e momentos para criar uma narrativa que faça sentido.</p>
+        </article>
+        <article class="process-card reveal reveal--delay">
+          <div class="process-image"><img src="{{ url_for('static', filename='img/laptop-editing.webp') }}" alt="Montagem de retrospectiva em um computador" width="900" height="1100" loading="lazy"></div>
+          <span class="step-number">02</span>
+          <h3>Anime a história</h3>
+          <p>Aplique o método das aulas e transforme arquivos soltos em uma experiência fluida.</p>
+        </article>
+        <article class="process-card reveal reveal--delay-2">
+          <div class="process-image"><img src="{{ url_for('static', filename='img/storyboard-before-after.webp') }}" alt="Sequência visual representando a evolução de uma história" width="900" height="1100" loading="lazy"></div>
+          <span class="step-number">03</span>
+          <h3>Entregue emoção</h3>
+          <p>Finalize uma retrospectiva pronta para surpreender clientes, amigos ou sua família.</p>
+        </article>
+      </div>
+
+      <div class="container timeline-showcase reveal">
+        <img src="{{ url_for('static', filename='img/abstract-timeline.webp') }}" alt="Linha visual conectando diferentes quadros de uma história" width="1448" height="1086" loading="lazy">
+        <div>
+          <p class="eyebrow"><span></span> Narrativa visual</p>
+          <h3>Cada foto encontra o seu lugar na história.</h3>
+          <p>Você aprende a organizar ritmo, sequência e emoção para que o vídeo tenha começo, desenvolvimento e um final marcante.</p>
+        </div>
+      </div>
+
+      <div class="section-cta center reveal">
+        <a class="button button--outline" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero aprender o passo a passo <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="section memories-section" aria-labelledby="memories-title">
+      <div class="container narrow center reveal">
+        <p class="eyebrow eyebrow--center"><span></span> Possibilidades criativas</p>
+        <h2 id="memories-title">Uma técnica para celebrar <em>muitos momentos</em></h2>
+        <p class="section-lead">Crie narrativas visuais para ocasiões diferentes e construa um portfólio com variedade.</p>
+      </div>
+
+      <div class="container memory-grid">
+        <article class="memory-card memory-card--wide reveal">
+          <img src="{{ url_for('static', filename='img/wedding-memory.webp') }}" alt="Casal celebrando uma história de casamento" width="1400" height="900" loading="lazy">
+          <div><small>Momentos a dois</small><h3>Casamentos e aniversários</h3></div>
+        </article>
+        <article class="memory-card reveal">
+          <img src="{{ url_for('static', filename='img/graduation-memory.webp') }}" alt="Celebração de formatura" width="900" height="1100" loading="lazy">
+          <div><small>Novos capítulos</small><h3>Formaturas</h3></div>
+        </article>
+        <article class="memory-card reveal">
+          <img src="{{ url_for('static', filename='img/birthday-memory.webp') }}" alt="Celebração de aniversário em família" width="900" height="1100" loading="lazy">
+          <div><small>Datas inesquecíveis</small><h3>Aniversários</h3></div>
+        </article>
+        <article class="memory-card memory-card--wide reveal">
+          <img src="{{ url_for('static', filename='img/family-memories.webp') }}" alt="Família reunida revivendo memórias" width="1400" height="900" loading="lazy">
+          <div><small>Histórias que atravessam gerações</small><h3>Família e homenagens</h3></div>
+        </article>
+        <article class="memory-card reveal">
+          <img src="{{ url_for('static', filename='img/pet-memory.webp') }}" alt="Família guardando lembranças de um animal de estimação" width="900" height="1100" loading="lazy">
+          <div><small>Afeto em cada quadro</small><h3>Pets e tributos</h3></div>
+        </article>
+      </div>
+
+      <div class="section-cta center reveal">
+        <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero criar vídeos assim <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="section section--contrast benefits-section" id="conteudo-curso" aria-labelledby="benefits-title">
+      <div class="container section-heading reveal">
+        <div>
+          <p class="eyebrow"><span></span> Diferenciais do curso</p>
+          <h2 id="benefits-title">Tudo pensado para você <em>sair do zero</em></h2>
+        </div>
+        <p>Conteúdo direto, materiais de apoio e um ambiente para tirar dúvidas durante sua evolução.</p>
+      </div>
+
+      <div class="container benefits-grid">
+        <article class="benefit-card reveal">
+          <span class="benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m7 17 6 6L26 7"/></svg></span>
+          <small>01</small>
+          <h3>Método simples e direto</h3>
+          <p>Uma sequência clara para começar a criar suas retrospectivas e desenvolver a habilidade.</p>
+        </article>
+        <article class="benefit-card reveal reveal--delay">
+          <span class="benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h18v22H7zM11 11h10M11 16h10M11 21h6"/></svg></span>
+          <small>02</small>
+          <h3>Aulas práticas, sem enrolação</h3>
+          <p>Aulas em vídeo explicando os detalhes para que você possa acompanhar no seu ritmo.</p>
+        </article>
+        <article class="benefit-card benefit-card--image reveal">
+          <img src="{{ url_for('static', filename='img/bonus-pack.webp') }}" alt="Conjunto visual de modelos e materiais criativos" width="1200" height="900" loading="lazy">
+          <div><small>Bônus</small><h3>Pacote de retrospectivas animadas editáveis</h3></div>
+        </article>
+        <article class="benefit-card benefit-card--image reveal reveal--delay">
+          <img src="{{ url_for('static', filename='img/support-community.webp') }}" alt="Comunidade online colaborando e compartilhando materiais" width="1200" height="900" loading="lazy">
+          <div><small>Suporte</small><h3>WhatsApp exclusivo e grupo de materiais</h3></div>
+        </article>
+      </div>
+
+      <div class="section-cta center reveal">
+        <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero o curso completo <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="section audience-section" id="para-quem" aria-labelledby="audience-title">
+      <div class="container audience-grid">
+        <div class="audience-copy reveal">
+          <p class="eyebrow"><span></span> Para quem é indicado?</p>
+          <h2 id="audience-title">Para quem quer começar com o que <em>já tem em mãos</em></h2>
+          <div class="audience-list">
+            <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span><p><strong>Quem busca renda extra</strong> com uma habilidade criativa.</p></div>
+            <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span><p><strong>Quem quer trabalhar pela internet</strong> e produzir de onde estiver.</p></div>
+            <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span><p><strong>Quem tem um celular ou computador</strong> e vontade de aprender.</p></div>
+            <div><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></span><p><strong>Mães e pais</strong> que querem criar as próprias retrospectivas.</p></div>
+          </div>
+          <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Esse curso é para mim <span>→</span></a>
+        </div>
+        <div class="audience-visual reveal reveal--delay">
+          <img class="audience-main" src="{{ url_for('static', filename='img/income-home.webp') }}" alt="Pessoa trabalhando em casa com criatividade e autonomia" width="1200" height="1400" loading="lazy">
+          <div class="audience-mini">
+            <img src="{{ url_for('static', filename='img/celebration-final.webp') }}" alt="Celebração com luzes e confetes" width="700" height="700" loading="lazy">
+            <p><span>Crie.</span> Emocione.<br><strong>Evolua.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section instructor-section" aria-labelledby="instructor-title">
+      <div class="container instructor-grid">
+        <div class="instructor-visual reveal">
+          <div class="instructor-halo" aria-hidden="true"></div>
+          <img src="{{ url_for('static', filename='img/julio-portrait.webp') }}" alt="Júlio Neves com celular em mãos" width="435" height="613" loading="lazy">
+          <span class="signature">Júlio Neves</span>
+        </div>
+        <div class="content-stack reveal reveal--delay">
+          <p class="eyebrow"><span></span> Conheça seu mentor</p>
+          <h2 id="instructor-title">Experiência de quem vive de <em>contar histórias</em></h2>
+          <p>Júlio Neves é videomaker e fotógrafo há mais de 15 anos. Ao longo dessa trajetória, desenvolveu uma técnica de vídeos de retrospectivas emocionantes que também se tornou uma oportunidade de trabalho.</p>
+          <div class="mentor-note"><strong>15+ anos</strong><span>de experiência com vídeo e fotografia</span></div>
+          <a class="button button--outline" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero aprender com o Júlio <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section offer-section" id="oferta" aria-labelledby="offer-title">
+      <div class="offer-glow" aria-hidden="true"></div>
+      <div class="container offer-card reveal">
+        <div class="offer-content">
+          <p class="eyebrow"><span></span> Comece hoje</p>
+          <h2 id="offer-title">Leve o método completo por um valor <em>especial</em></h2>
+          <ul class="offer-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Aulas práticas gravadas em vídeo</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Método para celular ou computador</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Pacote de retrospectivas editáveis</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> WhatsApp e grupo de materiais</li>
+          </ul>
+        </div>
+        <div class="checkout-card">
+          <span class="offer-chip">Oferta apresentada no material</span>
+          <p>De <s>R$ 297</s> por apenas</p>
+          <strong class="checkout-price"><sup>R$</sup> 97</strong>
+          <span>pagamento único</span>
+          <a class="button button--primary button--large" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero começar agora <span>→</span></a>
+          <small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg> Checkout seguro pela Hotmart</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="duvidas" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <p class="eyebrow"><span></span> Dúvidas frequentes</p>
+          <h2 id="faq-title">Antes de dar o <em>primeiro passo</em></h2>
+          <p>Veja respostas rápidas sobre a experiência de aprendizado.</p>
+          <a class="button button--outline" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Acessar o curso <span>→</span></a>
+        </div>
+        <div class="accordion reveal reveal--delay">
+          <details open>
+            <summary>O curso é indicado para iniciantes?<span></span></summary>
+            <p>Sim. A proposta é ensinar um método simples e direto para quem quer começar do zero, sem exigir experiência anterior.</p>
+          </details>
+          <details>
+            <summary>Preciso ter um computador profissional?<span></span></summary>
+            <p>Não. Conforme a apresentação do curso, você pode acompanhar e criar usando um celular ou um computador.</p>
+          </details>
+          <details>
+            <summary>As aulas são ao vivo?<span></span></summary>
+            <p>O conteúdo é composto por aulas gravadas em vídeo, para que você possa assistir no seu próprio ritmo.</p>
+          </details>
+          <details>
+            <summary>O que recebo além das aulas?<span></span></summary>
+            <p>O material apresenta um pacote de retrospectivas animadas editáveis, suporte por WhatsApp e um grupo para compartilhamento de materiais.</p>
+          </details>
+          <details>
+            <summary>Onde a compra é realizada?<span></span></summary>
+            <p>Ao clicar em qualquer botão de compra, você será direcionado ao checkout oficial da Hotmart.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="final-title">
+      <img src="{{ url_for('static', filename='img/celebration-final.webp') }}" alt="" width="1600" height="900" loading="lazy" aria-hidden="true">
+      <div class="final-overlay" aria-hidden="true"></div>
+      <div class="container center reveal">
+        <p class="eyebrow eyebrow--center"><span></span> Sua próxima história começa agora</p>
+        <h2 id="final-title">Transforme memórias em vídeos que as pessoas vão querer <em>rever para sempre.</em></h2>
+        <p>Comece do zero, aprenda no seu ritmo e dê vida às histórias que merecem ser contadas.</p>
+        <a class="button button--primary button--large" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero garantir meu acesso <span>→</span></a>
+        <small>De <s>R$ 297</s> por R$ 97 • pagamento único</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <a class="brand brand--footer" href="#inicio" aria-label="Voltar ao início">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-copy"><strong>Retrospectiva</strong><em>Animada</em></span>
+      </a>
+      <p>Conteúdo educacional para criação de retrospectivas animadas.</p>
+      <a href="#duvidas">Dúvidas frequentes</a>
+    </div>
+    <div class="container footer-legal">
+      <p>Este site contém link de afiliado. Uma compra realizada por ele pode gerar comissão, sem custo adicional para você.</p>
+      <p>*Os resultados financeiros variam conforme dedicação, aplicação, experiência, mercado e outros fatores. Não há garantia de ganhos.</p>
+      <span>© <span data-year></span> Retrospectiva Animada.</span>
+    </div>
+  </footer>
+
+  <div class="mobile-buy-bar" aria-label="Oferta do curso">
+    <div><small>Pagamento único</small><strong>R$ 97</strong></div>
+    <a href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero começar</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>
