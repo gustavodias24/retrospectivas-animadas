@@ -135,6 +135,7 @@
         width: 100% !important;
         max-width: 100% !important;
         min-width: 0 !important;
+        overflow: hidden !important;
       }
 
       .hero-logo-lockup {
@@ -174,15 +175,18 @@
       }
 
       #hero-title {
+        display: block !important;
         width: 100% !important;
-        max-width: 100% !important;
+        max-width: 10ch !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        font-size: clamp(2.55rem, 12vw, 4rem) !important;
-        line-height: 0.98 !important;
-        letter-spacing: -0.045em !important;
-        overflow-wrap: break-word !important;
-        word-break: normal !important;
+        font-size: clamp(2rem, 9.4vw, 2.7rem) !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.04em !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+        text-wrap: balance !important;
         hyphens: auto;
       }
 
@@ -314,9 +318,10 @@
       }
 
       #hero-title {
-        font-size: clamp(2.35rem, 11.5vw, 3.1rem) !important;
-        line-height: 1 !important;
-        letter-spacing: -0.04em !important;
+        max-width: 9.5ch !important;
+        font-size: clamp(1.85rem, 8.9vw, 2.35rem) !important;
+        line-height: 1.04 !important;
+        letter-spacing: -0.03em !important;
       }
 
       .hero-income-kicker {
@@ -361,6 +366,18 @@
         max-width: 62% !important;
         padding-left: 14px !important;
         padding-right: 14px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      #hero-title {
+        max-width: 9ch !important;
+        font-size: clamp(1.7rem, 8.2vw, 2.05rem) !important;
+        line-height: 1.06 !important;
+      }
+
+      .hero-lead {
+        font-size: 0.98rem !important;
       }
     }
   </style>
@@ -435,7 +452,7 @@
             <p>criando retrospectivas animadas para aniversários, casamentos, formaturas e homenagens.</p>
           </div>
 
-          <h1 id="hero-title">Aprenda a criar vídeos com fotos que emocionam — e transforme essa habilidade em <em>renda extra.</em></h1>
+          <h1 id="hero-title">Crie vídeos com fotos que emocionam — e transforme isso em <em>renda extra.</em></h1>
           <p class="hero-lead">Comece do zero usando apenas seu <strong>celular ou computador</strong>. Aulas gravadas em vídeo, método passo a passo, retrospectivas editáveis e suporte para você aprender no seu ritmo.</p>
 
           <div class="hero-points" aria-label="Principais benefícios">
