@@ -467,492 +467,785 @@
   </header>
 
   <main id="conteudo">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-  <style>
-    /* =========================
-       AJUSTES RESPONSIVOS HERO
-    ========================== */
+    <section class="hero hero-mobile-rebuild" id="inicio" aria-labelledby="hero-title">
 
-    #inicio.hero {
+  <style>
+    /* =========================================================
+       HERO — NOVO LAYOUT
+       Desktop continua em 2 colunas.
+       Mobile foi totalmente reconstruído para evitar cortes.
+    ========================================================= */
+
+    #inicio.hero-mobile-rebuild {
       position: relative;
       width: 100%;
-      max-width: 100%;
-      min-height: auto;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
+      isolation: isolate;
+    }
+
+    #inicio.hero-mobile-rebuild,
+    #inicio.hero-mobile-rebuild * {
       box-sizing: border-box;
     }
 
-    #inicio *,
-    #inicio *::before,
-    #inicio *::after {
-      box-sizing: border-box;
-    }
-
+    /* BACKGROUND */
     #inicio .hero-media {
       position: absolute;
       inset: 0;
+      z-index: -3;
       width: 100%;
       height: 100%;
-      z-index: 0;
-      overflow: hidden;
     }
 
     #inicio .hero-media img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      display: block;
     }
 
-    #inicio .hero-grid {
+    #inicio .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 10, 28, 0.95) 0%,
+          rgba(7, 10, 28, 0.84) 42%,
+          rgba(7, 10, 28, 0.35) 72%,
+          rgba(7, 10, 28, 0.2) 100%
+        );
+    }
+
+    /* ==========================
+       DESKTOP
+    ========================== */
+
+    #inicio .hero-shell {
       position: relative;
       z-index: 2;
-      width: 100%;
-      max-width: 1200px;
+
+      width: min(1240px, calc(100% - 48px));
+      min-height: 100vh;
+
       margin: 0 auto;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding: 80px 0 65px;
 
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
       align-items: center;
-      gap: 40px;
+      gap: 50px;
     }
 
-    #inicio .hero-copy,
-    #inicio .hero-visual {
-      width: 100%;
+    #inicio .hero-content {
       min-width: 0;
-      max-width: 100%;
+      width: 100%;
+      max-width: 680px;
     }
 
-    #inicio .hero-copy h1,
-    #inicio .hero-copy p,
-    #inicio .hero-income-highlight,
-    #inicio .hero-logo-lockup,
-    #inicio .hero-offer,
-    #inicio .hero-points {
-      max-width: 100%;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    #inicio .hero-logo-lockup {
+    /* LOGO */
+    #inicio .hero-brand {
       display: flex;
       align-items: center;
       gap: 16px;
+      margin-bottom: 24px;
     }
 
-    #inicio .hero-logo-lockup img {
-      flex: 0 0 auto;
-      max-width: 110px;
-      width: 100%;
-      height: auto;
+    #inicio .hero-brand img {
+      display: block;
+      width: 92px;
+      height: 92px;
+      flex: 0 0 92px;
       object-fit: contain;
     }
 
-    #inicio .hero-logo-lockup div {
+    #inicio .hero-brand-text {
       min-width: 0;
     }
 
-    #inicio .hero-logo-lockup strong,
-    #inicio .hero-logo-lockup span {
+    #inicio .hero-brand-text strong {
       display: block;
+      margin-bottom: 4px;
+      font-size: 19px;
+      line-height: 1.25;
     }
 
-    #inicio .hero-income-highlight strong {
+    #inicio .hero-brand-text span {
+      display: block;
+      line-height: 1.45;
+    }
+
+    /* DESTAQUE DE RENDA */
+    #inicio .hero-income {
+      width: 100%;
+      max-width: 610px;
+      margin-bottom: 27px;
+      padding: 18px 20px;
+
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 20px;
+      background: rgba(12, 13, 35, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    #inicio .hero-income-label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: .08em;
+    }
+
+    #inicio .hero-income-value {
       display: flex;
       align-items: baseline;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 8px;
+
+      margin: 0 0 8px;
+
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 900;
+      line-height: .95;
     }
 
-    #inicio .hero-points {
+    #inicio .hero-income-value small {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    #inicio .hero-income p {
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    /* TÍTULO */
+    #inicio #hero-title {
+      width: 100%;
+      margin: 0 0 20px;
+
+      font-size: clamp(44px, 5vw, 68px);
+      line-height: .98;
+      letter-spacing: -.035em;
+
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    #inicio #hero-title em {
+      white-space: normal;
+    }
+
+    #inicio .hero-description {
+      max-width: 620px;
+      margin: 0 0 25px;
+
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    /* BENEFÍCIOS */
+    #inicio .hero-benefits {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-bottom: 29px;
     }
 
-    #inicio .hero-points span {
+    #inicio .hero-benefit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
       min-width: 0;
+      padding: 10px 13px;
+
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
     }
 
-    #inicio .hero-offer {
+    #inicio .hero-benefit svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* PREÇO + BOTÃO */
+    #inicio .hero-buy {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    #inicio .button--large {
-      max-width: 100%;
-      white-space: normal;
-      text-align: center;
-    }
-
-    #inicio .portrait-stage,
-    #inicio .portrait-photo-frame {
+      gap: 24px;
       width: 100%;
-      max-width: 100%;
+      margin-bottom: 17px;
     }
 
-    #inicio .portrait-photo-frame img {
+    #inicio .hero-price {
+      flex: 0 0 auto;
+    }
+
+    #inicio .hero-price > small,
+    #inicio .hero-price > span {
+      display: block;
+    }
+
+    #inicio .hero-price strong {
+      display: block;
+      line-height: .95;
+    }
+
+    #inicio .hero-price strong sup {
+      font-size: .4em;
+      vertical-align: super;
+    }
+
+    #inicio .hero-buy .button {
+      min-width: 250px;
+    }
+
+    #inicio .hero-security,
+    #inicio .hero-disclaimer {
+      max-width: 610px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* FOTO */
+    #inicio .hero-photo-area {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    #inicio .hero-person {
+      position: relative;
+      width: min(100%, 570px);
+      margin: 0 auto;
+    }
+
+    #inicio .hero-person::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 50%;
+
+      width: 88%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    #inicio .hero-person img {
       display: block;
       width: 100%;
-      max-width: 560px;
       height: auto;
       margin: 0 auto;
+
       object-fit: contain;
+      object-position: center bottom;
     }
 
-    /* =========================
-       TABLET / MOBILE
-    ========================== */
-
-    @media (max-width: 991px) {
-      #inicio.hero {
-        min-height: auto !important;
-        height: auto !important;
-        overflow: hidden;
-      }
-
-      #inicio .hero-grid {
-        grid-template-columns: 1fr !important;
-        width: 100%;
-        max-width: 100%;
-        padding: 70px 24px 60px;
-        gap: 35px;
-      }
-
-      #inicio .hero-copy {
-        width: 100%;
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      #inicio .hero-logo-lockup {
-        justify-content: center;
-        text-align: left;
-      }
-
-      #inicio .hero-income-highlight {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
-
-      #inicio .hero-income-highlight strong {
-        justify-content: center;
-      }
-
-      #inicio .hero-points {
-        justify-content: center;
-      }
-
-      #inicio .hero-offer {
-        justify-content: center;
-      }
-
-      #inicio .secure-note,
-      #inicio .income-disclaimer {
-        text-align: center;
-      }
-
-      #inicio .hero-visual {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        max-width: 520px;
-        margin: 0 auto;
-      }
-    }
-
-    /* =========================
-       CELULAR
-    ========================== */
+    /* =========================================================
+       MOBILE
+       Aqui NÃO usamos grid, container antigo ou posicionamento
+       absoluto no conteúdo.
+    ========================================================= */
 
     @media (max-width: 767px) {
-      #inicio.hero {
-        width: 100%;
-        max-width: 100vw;
-        min-height: auto !important;
+
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      #inicio.hero-mobile-rebuild {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-height: 0 !important;
         height: auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden !important;
+      }
+
+      /* Remove possíveis efeitos antigos que empurrem conteúdo */
+      #inicio .reveal,
+      #inicio .reveal--delay {
+        opacity: 1 !important;
+        transform: none !important;
+        translate: none !important;
+      }
+
+      #inicio .hero-orb {
+        display: none !important;
+      }
+
+      #inicio .hero-media {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
       }
 
       #inicio .hero-media img {
-        object-position: center center;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center top !important;
       }
 
-      #inicio .hero-grid {
+      #inicio .hero-bg-overlay {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(7, 10, 28, .91) 0%,
+            rgba(7, 10, 28, .94) 48%,
+            rgba(7, 10, 28, .98) 100%
+          );
+      }
+
+      /* IMPORTANTE:
+         ignora completamente qualquer .container / .hero-grid antigo */
+      #inicio .hero-shell {
+        position: relative !important;
+
         display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
+        flex-direction: column !important;
+        align-items: center !important;
 
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
 
-        padding-top: 48px;
-        padding-right: 18px;
-        padding-bottom: 55px;
-        padding-left: 18px;
+        min-height: 0 !important;
+        height: auto !important;
 
-        gap: 30px;
+        margin: 0 !important;
+
+        padding:
+          max(38px, env(safe-area-inset-top))
+          16px
+          45px !important;
+
+        gap: 32px !important;
+
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
       }
 
-      #inicio .hero-copy {
+      #inicio .hero-content {
+        order: 1;
+
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
+        width: 100% !important;
+        max-width: 560px !important;
+        min-width: 0 !important;
 
-        margin: 0 auto;
-        text-align: center;
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        text-align: center !important;
+
+        transform: none !important;
       }
 
-      #inicio .hero-logo-lockup {
-        width: 100%;
-        max-width: 420px;
-        margin: 0 auto 20px;
+      /* LOGO NO TOPO */
+      #inicio .hero-brand {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 100% !important;
+        max-width: 380px !important;
 
-        gap: 10px;
-        text-align: center;
+        margin: 0 auto 22px !important;
+        gap: 9px !important;
+
+        text-align: center !important;
       }
 
-      #inicio .hero-logo-lockup img {
-        width: 90px;
-        max-width: 90px;
-        height: auto;
-        margin: 0 auto;
+      #inicio .hero-brand img {
+        width: 82px !important;
+        height: auto !important;
+        max-width: 82px !important;
+        flex: none !important;
+
+        margin: 0 auto !important;
       }
 
-      #inicio .hero-logo-lockup div {
-        width: 100%;
-        text-align: center;
+      #inicio .hero-brand-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        text-align: center !important;
       }
 
-      #inicio .hero-logo-lockup strong {
-        font-size: 17px;
-        line-height: 1.3;
+      #inicio .hero-brand-text strong {
+        font-size: 17px !important;
+        line-height: 1.3 !important;
       }
 
-      #inicio .hero-logo-lockup span {
-        margin-top: 4px;
-        font-size: 14px;
-        line-height: 1.45;
+      #inicio .hero-brand-text span {
+        margin-top: 4px !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
       }
 
-      #inicio .hero-income-highlight {
-        width: 100%;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-        text-align: center;
+      /* CARD RENDA */
+      #inicio .hero-income {
+        width: 100% !important;
+        max-width: 460px !important;
+
+        margin: 0 auto 25px !important;
+        padding: 17px 13px !important;
+
+        border-radius: 18px !important;
+        text-align: center !important;
       }
 
-      #inicio .hero-income-kicker {
-        display: block;
-        width: 100%;
-        font-size: clamp(11px, 3.2vw, 14px);
-        line-height: 1.4;
-        white-space: normal;
+      #inicio .hero-income-label {
+        width: 100% !important;
+
+        margin: 0 auto 8px !important;
+
+        font-size: clamp(10px, 3vw, 13px) !important;
+        line-height: 1.35 !important;
+        letter-spacing: .04em !important;
+
+        white-space: normal !important;
       }
 
-      #inicio .hero-income-highlight strong {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: baseline;
-        flex-wrap: wrap;
+      #inicio .hero-income-value {
+        display: block !important;
 
-        font-size: clamp(34px, 11vw, 55px);
-        line-height: 1.05;
+        width: 100% !important;
+        max-width: 100% !important;
 
-        white-space: normal;
+        margin: 0 auto 8px !important;
+
+        font-size: clamp(38px, 12vw, 56px) !important;
+        line-height: 1 !important;
+
+        text-align: center !important;
+        white-space: normal !important;
       }
 
-      #inicio .hero-income-highlight strong small {
-        font-size: clamp(12px, 3.8vw, 18px);
+      #inicio .hero-income-value small {
+        display: inline !important;
+        font-size: .32em !important;
       }
 
-      #inicio .hero-income-highlight p {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 14px;
-        line-height: 1.5;
+      #inicio .hero-income p {
+        width: 100% !important;
+        max-width: 400px !important;
+
+        margin: 0 auto !important;
+
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+
+        text-align: center !important;
       }
 
+      /* TÍTULO */
       #inicio #hero-title {
-        width: 100%;
-        max-width: 560px;
-        margin-left: auto;
-        margin-right: auto;
+        display: block !important;
 
-        font-size: clamp(30px, 8.5vw, 44px);
-        line-height: 1.08;
-        text-align: center;
+        width: 100% !important;
+        max-width: 520px !important;
+        min-width: 0 !important;
 
-        overflow-wrap: anywhere;
+        margin: 0 auto 18px !important;
+        padding: 0 !important;
+
+        font-size: clamp(31px, 8.8vw, 46px) !important;
+        line-height: 1.06 !important;
+        letter-spacing: -.025em !important;
+
+        text-align: center !important;
+
+        white-space: normal !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+
+        transform: none !important;
       }
 
-      #inicio .hero-lead {
-        width: 100%;
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
-
-        font-size: clamp(15px, 4vw, 18px);
-        line-height: 1.55;
-        text-align: center;
+      #inicio #hero-title em {
+        display: inline !important;
+        white-space: normal !important;
       }
 
-      #inicio .hero-points {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+      /* TEXTO */
+      #inicio .hero-description {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 500px !important;
+
+        margin: 0 auto 23px !important;
+        padding: 0 3px !important;
+
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+
+        text-align: center !important;
+
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
       }
 
-      #inicio .hero-points span {
-        width: auto;
-        max-width: 100%;
-        justify-content: center;
-        text-align: center;
+      /* BENEFÍCIOS EM CARDS */
+      #inicio .hero-benefits {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+
+        width: 100% !important;
+        max-width: 420px !important;
+
+        margin: 0 auto 27px !important;
+        gap: 9px !important;
       }
 
-      #inicio .hero-offer {
-        width: 100%;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
+      #inicio .hero-benefit {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        width: 100% !important;
+        max-width: 100% !important;
 
-        gap: 18px;
-        text-align: center;
+        margin: 0 !important;
+        padding: 11px 12px !important;
+
+        border-radius: 14px !important;
+
+        text-align: center !important;
+        white-space: normal !important;
       }
 
-      #inicio .price-lockup {
-        width: 100%;
-        text-align: center;
+      /* PREÇO */
+      #inicio .hero-buy {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        width: 100% !important;
+        max-width: 440px !important;
+
+        margin: 0 auto 16px !important;
+        gap: 16px !important;
       }
 
-      #inicio .button--large {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 100%;
-        max-width: 400px;
-        min-width: 0;
-
-        margin: 0 auto;
-        padding-left: 18px;
-        padding-right: 18px;
-
-        white-space: normal;
-        text-align: center;
+      #inicio .hero-price {
+        width: 100% !important;
+        text-align: center !important;
       }
 
-      #inicio .secure-note,
-      #inicio .income-disclaimer {
-        width: 100%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+      #inicio .hero-price > small,
+      #inicio .hero-price > span {
+        text-align: center !important;
       }
 
-      #inicio .hero-visual {
-        width: 100%;
-        max-width: 430px;
-        margin: 0 auto;
+      #inicio .hero-buy .button,
+      #inicio .hero-buy .button--primary,
+      #inicio .hero-buy .button--large {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100% !important;
+        max-width: 400px !important;
+        min-width: 0 !important;
+
+        margin: 0 auto !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+
+        text-align: center !important;
+        white-space: normal !important;
       }
 
-      #inicio .portrait-stage {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+      #inicio .hero-security,
+      #inicio .hero-disclaimer {
+        width: 100% !important;
+        max-width: 460px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+
+        text-align: center !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
       }
 
-      #inicio .portrait-photo-frame {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+      /* FOTO FICA ABAIXO DO CONTEÚDO */
+      #inicio .hero-photo-area {
+        order: 2;
+
+        position: relative !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 100% !important;
+        max-width: 460px !important;
+        min-width: 0 !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: -5px auto 0 !important;
+        padding: 0 !important;
+
+        inset: auto !important;
+        transform: none !important;
       }
 
-      #inicio .portrait-photo-frame img {
-        width: 100%;
-        max-width: 380px;
-        height: auto;
-        margin: 0 auto;
-        object-fit: contain;
-        object-position: center;
+      #inicio .hero-person {
+        position: relative !important;
+
+        width: 100% !important;
+        max-width: 390px !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        transform: none !important;
+        inset: auto !important;
+      }
+
+      #inicio .hero-person::before {
+        width: 85% !important;
+      }
+
+      #inicio .hero-person img {
+        position: relative !important;
+
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 360px !important;
+        height: auto !important;
+        max-height: none !important;
+
+        margin: 0 auto !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+
+        transform: none !important;
       }
 
       #inicio .scroll-cue {
-        display: none;
+        display: none !important;
       }
     }
 
-    /* =========================
-       CELULARES PEQUENOS
-    ========================== */
+    /* =========================================================
+       MOBILE PEQUENO
+    ========================================================= */
 
     @media (max-width: 420px) {
-      #inicio .hero-grid {
-        padding-left: 14px;
-        padding-right: 14px;
-        padding-top: 40px;
+
+      #inicio .hero-shell {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+
+      #inicio .hero-content {
+        max-width: 100% !important;
       }
 
       #inicio #hero-title {
-        font-size: clamp(28px, 8.5vw, 36px);
+        font-size: clamp(29px, 9vw, 38px) !important;
+        line-height: 1.07 !important;
       }
 
-      #inicio .hero-income-highlight strong {
-        font-size: clamp(31px, 10.5vw, 44px);
+      #inicio .hero-income {
+        padding: 15px 10px !important;
       }
 
-      #inicio .hero-logo-lockup img {
-        width: 78px;
-        max-width: 78px;
+      #inicio .hero-income-value {
+        font-size: clamp(35px, 11.5vw, 48px) !important;
       }
 
-      #inicio .button--large {
-        width: 100%;
-        font-size: 15px;
+      #inicio .hero-description {
+        font-size: 15px !important;
       }
 
-      #inicio .portrait-photo-frame img {
-        max-width: 330px;
+      #inicio .hero-person {
+        max-width: 330px !important;
+      }
+
+      #inicio .hero-person img {
+        max-width: 315px !important;
+      }
+    }
+
+    /* =========================================================
+       CELULARES MUITO ESTREITOS
+    ========================================================= */
+
+    @media (max-width: 350px) {
+
+      #inicio .hero-shell {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+
+      #inicio #hero-title {
+        font-size: 27px !important;
+      }
+
+      #inicio .hero-income-value {
+        font-size: 34px !important;
+      }
+
+      #inicio .hero-brand img {
+        width: 70px !important;
+        max-width: 70px !important;
       }
     }
   </style>
 
+
+  <!-- BACKGROUND -->
   <div class="hero-media" aria-hidden="true">
     <img
       src="{{ url_for('static', filename='img/hero-bg.webp') }}"
@@ -963,14 +1256,20 @@
     >
   </div>
 
+  <div class="hero-bg-overlay" aria-hidden="true"></div>
+
   <div class="hero-orb hero-orb--one" aria-hidden="true"></div>
   <div class="hero-orb hero-orb--two" aria-hidden="true"></div>
 
-  <div class="container hero-grid">
 
-    <div class="hero-copy reveal">
+  <!-- CONTEÚDO -->
+  <div class="hero-shell">
 
-      <div class="hero-logo-lockup">
+    <div class="hero-content reveal">
+
+      <!-- LOGO -->
+      <div class="hero-brand">
+
         <img
           src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}"
           alt="Retrospectiva Animada"
@@ -978,21 +1277,28 @@
           height="640"
         >
 
-        <div>
+        <div class="hero-brand-text">
           <strong>Sua história merece ser revivida</strong>
-          <span>Aprenda uma habilidade criativa, prática e vendável</span>
+
+          <span>
+            Aprenda uma habilidade criativa, prática e vendável
+          </span>
         </div>
+
       </div>
 
+
+      <!-- RENDA -->
       <div
-        class="hero-income-highlight"
+        class="hero-income"
         aria-label="Destaque de renda extra"
       >
-        <span class="hero-income-kicker">
+
+        <span class="hero-income-label">
           APRENDA A CRIAR E BUSQUE UMA RENDA EXTRA
         </span>
 
-        <strong>
+        <strong class="hero-income-value">
           <small>ATÉ</small>
           R$ 5.000
           <small>/ MÊS*</small>
@@ -1002,52 +1308,80 @@
           criando retrospectivas animadas para aniversários,
           casamentos, formaturas e homenagens.
         </p>
+
       </div>
 
+
+      <!-- TÍTULO -->
       <h1 id="hero-title">
         Crie vídeos com fotos que emocionam — e transforme isso em
         <em>renda extra.</em>
       </h1>
 
-      <p class="hero-lead">
+
+      <!-- DESCRIÇÃO -->
+      <p class="hero-description">
         Comece do zero usando apenas seu
         <strong>celular ou computador</strong>.
         Aulas gravadas em vídeo, método passo a passo,
         retrospectivas editáveis e suporte para você aprender no seu ritmo.
       </p>
 
-      <div class="hero-points" aria-label="Principais benefícios">
 
-        <span>
+      <!-- BENEFÍCIOS -->
+      <div
+        class="hero-benefits"
+        aria-label="Principais benefícios"
+      >
+
+        <span class="hero-benefit">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m5 12 4 4L19 6"/>
           </svg>
+
           Sem precisar aparecer
         </span>
 
-        <span>
+
+        <span class="hero-benefit">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m5 12 4 4L19 6"/>
           </svg>
+
           Trabalhe de casa
         </span>
 
-        <span>
+
+        <span class="hero-benefit">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m5 12 4 4L19 6"/>
           </svg>
+
           Comece com o que já tem
         </span>
 
       </div>
 
-      <div class="hero-offer">
 
-        <div class="price-lockup">
-          <small>De <s>R$ 297</s> por</small>
-          <strong><sup>R$</sup> 97</strong>
-          <span>pagamento único</span>
+      <!-- OFERTA -->
+      <div class="hero-buy">
+
+        <div class="hero-price">
+
+          <small>
+            De <s>R$ 297</s> por
+          </small>
+
+          <strong>
+            <sup>R$</sup> 97
+          </strong>
+
+          <span>
+            pagamento único
+          </span>
+
         </div>
+
 
         <a
           class="button button--primary button--large"
@@ -1064,39 +1398,46 @@
 
       </div>
 
-      <p class="secure-note">
+
+      <!-- SEGURANÇA -->
+      <p class="secure-note hero-security">
+
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/>
         </svg>
+
         Compra processada em ambiente seguro pela Hotmart
       </p>
 
-      <p class="income-disclaimer">
-        *O valor de R$ 5.000/mês é um potencial apresentado no material
-        do curso. Resultados variam e não são garantidos.
+
+      <!-- DISCLAIMER -->
+      <p class="income-disclaimer hero-disclaimer">
+        *O valor de R$ 5.000/mês é um potencial apresentado
+        no material do curso. Resultados variam e não são garantidos.
       </p>
 
     </div>
 
-    <div class="hero-visual reveal reveal--delay">
-      <div class="portrait-stage portrait-stage--photo">
 
-        <div class="portrait-ring" aria-hidden="true"></div>
+    <!-- FOTO -->
+    <div class="hero-photo-area reveal reveal--delay">
 
-        <div class="portrait-photo-frame">
-          <img
-            src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}"
-            alt="Júlio Neves, criador do curso Retrospectiva Animada"
-            width="1400"
-            height="1400"
-            fetchpriority="high"
-          >
-        </div>
+      <div class="hero-person">
+
+        <img
+          src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}"
+          alt="Júlio Neves, criador do curso Retrospectiva Animada"
+          width="1400"
+          height="1400"
+          fetchpriority="high"
+        >
 
       </div>
+
     </div>
 
   </div>
+
 
   <a
     class="scroll-cue"
@@ -1105,6 +1446,7 @@
   >
     <span></span>
   </a>
+
 </section>
 
     <section class="promise-strip" aria-label="Resumo do curso">
