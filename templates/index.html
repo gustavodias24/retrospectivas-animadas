@@ -467,987 +467,719 @@
   </header>
 
   <main id="conteudo">
-    <section class="hero hero-mobile-rebuild" id="inicio" aria-labelledby="hero-title">
-
-  <style>
-    /* =========================================================
-       HERO — NOVO LAYOUT
-       Desktop continua em 2 colunas.
-       Mobile foi totalmente reconstruído para evitar cortes.
-    ========================================================= */
-
-    #inicio.hero-mobile-rebuild {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    #inicio.hero-mobile-rebuild,
-    #inicio.hero-mobile-rebuild * {
-      box-sizing: border-box;
-    }
-
-    /* BACKGROUND */
-    #inicio .hero-media {
-      position: absolute;
-      inset: 0;
-      z-index: -3;
-      width: 100%;
-      height: 100%;
-    }
-
-    #inicio .hero-media img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    #inicio .hero-bg-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(7, 10, 28, 0.95) 0%,
-          rgba(7, 10, 28, 0.84) 42%,
-          rgba(7, 10, 28, 0.35) 72%,
-          rgba(7, 10, 28, 0.2) 100%
-        );
-    }
-
-    /* ==========================
-       DESKTOP
-    ========================== */
-
-    #inicio .hero-shell {
-      position: relative;
-      z-index: 2;
-
-      width: min(1240px, calc(100% - 48px));
-      min-height: 100vh;
-
-      margin: 0 auto;
-      padding: 80px 0 65px;
-
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-      align-items: center;
-      gap: 50px;
-    }
-
-    #inicio .hero-content {
-      min-width: 0;
-      width: 100%;
-      max-width: 680px;
-    }
-
-    /* LOGO */
-    #inicio .hero-brand {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    #inicio .hero-brand img {
-      display: block;
-      width: 92px;
-      height: 92px;
-      flex: 0 0 92px;
-      object-fit: contain;
-    }
-
-    #inicio .hero-brand-text {
-      min-width: 0;
-    }
-
-    #inicio .hero-brand-text strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 19px;
-      line-height: 1.25;
-    }
-
-    #inicio .hero-brand-text span {
-      display: block;
-      line-height: 1.45;
-    }
-
-    /* DESTAQUE DE RENDA */
-    #inicio .hero-income {
-      width: 100%;
-      max-width: 610px;
-      margin-bottom: 27px;
-      padding: 18px 20px;
-
-      border: 1px solid rgba(255,255,255,.17);
-      border-radius: 20px;
-      background: rgba(12, 13, 35, 0.55);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    #inicio .hero-income-label {
-      display: block;
-      margin-bottom: 7px;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.35;
-      letter-spacing: .08em;
-    }
-
-    #inicio .hero-income-value {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 8px;
-
-      margin: 0 0 8px;
-
-      font-size: clamp(42px, 5vw, 68px);
-      font-weight: 900;
-      line-height: .95;
-    }
-
-    #inicio .hero-income-value small {
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    #inicio .hero-income p {
-      margin: 0;
-      line-height: 1.55;
-    }
-
-    /* TÍTULO */
-    #inicio #hero-title {
-      width: 100%;
-      margin: 0 0 20px;
-
-      font-size: clamp(44px, 5vw, 68px);
-      line-height: .98;
-      letter-spacing: -.035em;
-
-      overflow-wrap: normal;
-      word-break: normal;
-    }
-
-    #inicio #hero-title em {
-      white-space: normal;
-    }
-
-    #inicio .hero-description {
-      max-width: 620px;
-      margin: 0 0 25px;
-
-      font-size: 18px;
-      line-height: 1.65;
-    }
-
-    /* BENEFÍCIOS */
-    #inicio .hero-benefits {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 29px;
-    }
-
-    #inicio .hero-benefit {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      min-width: 0;
-      padding: 10px 13px;
-
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 999px;
-      background: rgba(255,255,255,.07);
-    }
-
-    #inicio .hero-benefit svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 18px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* PREÇO + BOTÃO */
-    #inicio .hero-buy {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      width: 100%;
-      margin-bottom: 17px;
-    }
-
-    #inicio .hero-price {
-      flex: 0 0 auto;
-    }
-
-    #inicio .hero-price > small,
-    #inicio .hero-price > span {
-      display: block;
-    }
-
-    #inicio .hero-price strong {
-      display: block;
-      line-height: .95;
-    }
-
-    #inicio .hero-price strong sup {
-      font-size: .4em;
-      vertical-align: super;
-    }
-
-    #inicio .hero-buy .button {
-      min-width: 250px;
-    }
-
-    #inicio .hero-security,
-    #inicio .hero-disclaimer {
-      max-width: 610px;
-      margin-left: 0;
-      margin-right: 0;
-    }
-
-    /* FOTO */
-    #inicio .hero-photo-area {
-      position: relative;
-      width: 100%;
-      min-width: 0;
-
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    #inicio .hero-person {
-      position: relative;
-      width: min(100%, 570px);
-      margin: 0 auto;
-    }
-
-    #inicio .hero-person::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      left: 50%;
-      top: 50%;
-
-      width: 88%;
-      aspect-ratio: 1;
-      border-radius: 50%;
-
-      transform: translate(-50%, -50%);
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-    }
-
-    #inicio .hero-person img {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-
-      object-fit: contain;
-      object-position: center bottom;
-    }
-
-    /* =========================================================
-       MOBILE
-       Aqui NÃO usamos grid, container antigo ou posicionamento
-       absoluto no conteúdo.
-    ========================================================= */
-
-    @media (max-width: 767px) {
-
-      html,
-      body {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-
-      #inicio.hero-mobile-rebuild {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        min-height: 0 !important;
-        height: auto !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        overflow: hidden !important;
-      }
-
-      /* Remove possíveis efeitos antigos que empurrem conteúdo */
-      #inicio .reveal,
-      #inicio .reveal--delay {
-        opacity: 1 !important;
-        transform: none !important;
-        translate: none !important;
-      }
-
-      #inicio .hero-orb {
-        display: none !important;
-      }
-
-      #inicio .hero-media {
-        position: absolute !important;
-        inset: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-      }
-
-      #inicio .hero-media img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        object-position: center top !important;
-      }
-
-      #inicio .hero-bg-overlay {
-        background:
-          linear-gradient(
-            180deg,
-            rgba(7, 10, 28, .91) 0%,
-            rgba(7, 10, 28, .94) 48%,
-            rgba(7, 10, 28, .98) 100%
-          );
-      }
-
-      /* IMPORTANTE:
-         ignora completamente qualquer .container / .hero-grid antigo */
-      #inicio .hero-shell {
-        position: relative !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        min-height: 0 !important;
-        height: auto !important;
-
-        margin: 0 !important;
-
-        padding:
-          max(38px, env(safe-area-inset-top))
-          16px
-          45px !important;
-
-        gap: 32px !important;
-
-        transform: none !important;
-        left: auto !important;
-        right: auto !important;
-      }
-
-      #inicio .hero-content {
-        order: 1;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        width: 100% !important;
-        max-width: 560px !important;
-        min-width: 0 !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        text-align: center !important;
-
-        transform: none !important;
-      }
-
-      /* LOGO NO TOPO */
-      #inicio .hero-brand {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        width: 100% !important;
-        max-width: 380px !important;
-
-        margin: 0 auto 22px !important;
-        gap: 9px !important;
-
-        text-align: center !important;
-      }
-
-      #inicio .hero-brand img {
-        width: 82px !important;
-        height: auto !important;
-        max-width: 82px !important;
-        flex: none !important;
-
-        margin: 0 auto !important;
-      }
-
-      #inicio .hero-brand-text {
-        width: 100% !important;
-        max-width: 100% !important;
-        text-align: center !important;
-      }
-
-      #inicio .hero-brand-text strong {
-        font-size: 17px !important;
-        line-height: 1.3 !important;
-      }
-
-      #inicio .hero-brand-text span {
-        margin-top: 4px !important;
-        font-size: 14px !important;
-        line-height: 1.4 !important;
-      }
-
-      /* CARD RENDA */
-      #inicio .hero-income {
-        width: 100% !important;
-        max-width: 460px !important;
-
-        margin: 0 auto 25px !important;
-        padding: 17px 13px !important;
-
-        border-radius: 18px !important;
-        text-align: center !important;
-      }
-
-      #inicio .hero-income-label {
-        width: 100% !important;
-
-        margin: 0 auto 8px !important;
-
-        font-size: clamp(10px, 3vw, 13px) !important;
-        line-height: 1.35 !important;
-        letter-spacing: .04em !important;
-
-        white-space: normal !important;
-      }
-
-      #inicio .hero-income-value {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin: 0 auto 8px !important;
-
-        font-size: clamp(38px, 12vw, 56px) !important;
-        line-height: 1 !important;
-
-        text-align: center !important;
-        white-space: normal !important;
-      }
-
-      #inicio .hero-income-value small {
-        display: inline !important;
-        font-size: .32em !important;
-      }
-
-      #inicio .hero-income p {
-        width: 100% !important;
-        max-width: 400px !important;
-
-        margin: 0 auto !important;
-
-        font-size: 14px !important;
-        line-height: 1.5 !important;
-
-        text-align: center !important;
-      }
-
-      /* TÍTULO */
-      #inicio #hero-title {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 520px !important;
-        min-width: 0 !important;
-
-        margin: 0 auto 18px !important;
-        padding: 0 !important;
-
-        font-size: clamp(31px, 8.8vw, 46px) !important;
-        line-height: 1.06 !important;
-        letter-spacing: -.025em !important;
-
-        text-align: center !important;
-
-        white-space: normal !important;
-        word-break: normal !important;
-        overflow-wrap: break-word !important;
-
-        transform: none !important;
-      }
-
-      #inicio #hero-title em {
-        display: inline !important;
-        white-space: normal !important;
-      }
-
-      /* TEXTO */
-      #inicio .hero-description {
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 500px !important;
-
-        margin: 0 auto 23px !important;
-        padding: 0 3px !important;
-
-        font-size: 16px !important;
-        line-height: 1.55 !important;
-
-        text-align: center !important;
-
-        white-space: normal !important;
-        overflow-wrap: break-word !important;
-      }
-
-      /* BENEFÍCIOS EM CARDS */
-      #inicio .hero-benefits {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-
-        width: 100% !important;
-        max-width: 420px !important;
-
-        margin: 0 auto 27px !important;
-        gap: 9px !important;
-      }
-
-      #inicio .hero-benefit {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-
-        margin: 0 !important;
-        padding: 11px 12px !important;
-
-        border-radius: 14px !important;
-
-        text-align: center !important;
-        white-space: normal !important;
-      }
-
-      /* PREÇO */
-      #inicio .hero-buy {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-
-        width: 100% !important;
-        max-width: 440px !important;
-
-        margin: 0 auto 16px !important;
-        gap: 16px !important;
-      }
-
-      #inicio .hero-price {
-        width: 100% !important;
-        text-align: center !important;
-      }
-
-      #inicio .hero-price > small,
-      #inicio .hero-price > span {
-        text-align: center !important;
-      }
-
-      #inicio .hero-buy .button,
-      #inicio .hero-buy .button--primary,
-      #inicio .hero-buy .button--large {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        width: 100% !important;
-        max-width: 400px !important;
-        min-width: 0 !important;
-
-        margin: 0 auto !important;
-        padding-left: 18px !important;
-        padding-right: 18px !important;
-
-        text-align: center !important;
-        white-space: normal !important;
-      }
-
-      #inicio .hero-security,
-      #inicio .hero-disclaimer {
-        width: 100% !important;
-        max-width: 460px !important;
-
-        margin-left: auto !important;
-        margin-right: auto !important;
-
-        padding-left: 4px !important;
-        padding-right: 4px !important;
-
-        text-align: center !important;
-        white-space: normal !important;
-        overflow-wrap: break-word !important;
-      }
-
-      /* FOTO FICA ABAIXO DO CONTEÚDO */
-      #inicio .hero-photo-area {
-        order: 2;
-
-        position: relative !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        width: 100% !important;
-        max-width: 460px !important;
-        min-width: 0 !important;
-
-        height: auto !important;
-        min-height: 0 !important;
-
-        margin: -5px auto 0 !important;
-        padding: 0 !important;
-
-        inset: auto !important;
-        transform: none !important;
-      }
-
-      #inicio .hero-person {
-        position: relative !important;
-
-        width: 100% !important;
-        max-width: 390px !important;
-
-        margin: 0 auto !important;
-        padding: 0 !important;
-
-        transform: none !important;
-        inset: auto !important;
-      }
-
-      #inicio .hero-person::before {
-        width: 85% !important;
-      }
-
-      #inicio .hero-person img {
-        position: relative !important;
-
-        display: block !important;
-
-        width: 100% !important;
-        max-width: 360px !important;
-        height: auto !important;
-        max-height: none !important;
-
-        margin: 0 auto !important;
-
-        object-fit: contain !important;
-        object-position: center !important;
-
-        transform: none !important;
-      }
-
-      #inicio .scroll-cue {
-        display: none !important;
-      }
-    }
-
-    /* =========================================================
-       MOBILE PEQUENO
-    ========================================================= */
-
-    @media (max-width: 420px) {
-
-      #inicio .hero-shell {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-      }
-
-      #inicio .hero-content {
-        max-width: 100% !important;
-      }
-
-      #inicio #hero-title {
-        font-size: clamp(29px, 9vw, 38px) !important;
-        line-height: 1.07 !important;
-      }
-
-      #inicio .hero-income {
-        padding: 15px 10px !important;
-      }
-
-      #inicio .hero-income-value {
-        font-size: clamp(35px, 11.5vw, 48px) !important;
-      }
-
-      #inicio .hero-description {
-        font-size: 15px !important;
-      }
-
-      #inicio .hero-person {
-        max-width: 330px !important;
-      }
-
-      #inicio .hero-person img {
-        max-width: 315px !important;
-      }
-    }
-
-    /* =========================================================
-       CELULARES MUITO ESTREITOS
-    ========================================================= */
-
-    @media (max-width: 350px) {
-
-      #inicio .hero-shell {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-      }
-
-      #inicio #hero-title {
-        font-size: 27px !important;
-      }
-
-      #inicio .hero-income-value {
-        font-size: 34px !important;
-      }
-
-      #inicio .hero-brand img {
-        width: 70px !important;
-        max-width: 70px !important;
-      }
-    }
-  </style>
-
-
-  <!-- BACKGROUND -->
-  <div class="hero-media" aria-hidden="true">
-    <img
-      src="{{ url_for('static', filename='img/hero-bg.webp') }}"
-      alt=""
-      width="1600"
-      height="1000"
-      fetchpriority="high"
-    >
-  </div>
-
-  <div class="hero-bg-overlay" aria-hidden="true"></div>
-
-  <div class="hero-orb hero-orb--one" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb--two" aria-hidden="true"></div>
-
-
-  <!-- CONTEÚDO -->
-  <div class="hero-shell">
-
-    <div class="hero-content reveal">
-
-      <!-- LOGO -->
-      <div class="hero-brand">
-
-        <img
-          src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}"
-          alt="Retrospectiva Animada"
-          width="640"
-          height="640"
-        >
-
-        <div class="hero-brand-text">
-          <strong>Sua história merece ser revivida</strong>
-
-          <span>
-            Aprenda uma habilidade criativa, prática e vendável
-          </span>
+    <section class="hero ra3-hero" id="inicio" aria-labelledby="hero-title">
+      <style>
+        /* =========================================================
+           HERO V3 — layout isolado e realmente responsivo
+           Não reutiliza hero-grid / hero-copy / portrait-stage.
+        ========================================================== */
+        #inicio.ra3-hero,
+        #inicio.ra3-hero * {
+          box-sizing: border-box;
+        }
+
+        #inicio.ra3-hero {
+          position: relative !important;
+          display: block !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          min-height: 100vh !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+          isolation: isolate;
+        }
+
+        #inicio .ra3-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        #inicio .ra3-bg img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+
+        #inicio .ra3-bg::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(circle at 78% 38%, rgba(255, 107, 56, .16), transparent 34%),
+            linear-gradient(90deg, rgba(7, 8, 21, .97) 0%, rgba(7, 8, 21, .89) 46%, rgba(7, 8, 21, .58) 73%, rgba(7, 8, 21, .48) 100%);
+        }
+
+        #inicio .ra3-shell {
+          position: relative;
+          z-index: 2;
+          display: grid;
+          grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+          align-items: center;
+          gap: clamp(36px, 5vw, 72px);
+          width: min(1240px, calc(100% - 48px));
+          min-height: 100vh;
+          margin: 0 auto;
+          padding: 126px 0 72px;
+        }
+
+        #inicio .ra3-copy {
+          width: 100%;
+          min-width: 0;
+          max-width: 680px;
+        }
+
+        #inicio .ra3-brand {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          width: 100%;
+          margin: 0 0 22px;
+        }
+
+        #inicio .ra3-brand img {
+          display: block;
+          flex: 0 0 86px;
+          width: 86px;
+          height: 86px;
+          object-fit: contain;
+        }
+
+        #inicio .ra3-brand-copy {
+          min-width: 0;
+        }
+
+        #inicio .ra3-brand-copy strong,
+        #inicio .ra3-brand-copy span {
+          display: block;
+        }
+
+        #inicio .ra3-brand-copy strong {
+          margin-bottom: 4px;
+          font-size: 18px;
+          line-height: 1.25;
+        }
+
+        #inicio .ra3-brand-copy span {
+          font-size: 14px;
+          line-height: 1.45;
+        }
+
+        #inicio .ra3-income {
+          width: 100%;
+          max-width: 620px;
+          margin: 0 0 26px;
+          padding: 18px 20px;
+          border: 1px solid rgba(255, 255, 255, .15);
+          border-radius: 20px;
+          background: rgba(10, 11, 30, .62);
+          box-shadow: 0 18px 60px rgba(0, 0, 0, .18);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+
+        #inicio .ra3-income-kicker {
+          display: block;
+          margin: 0 0 8px;
+          font-size: 12px;
+          font-weight: 800;
+          line-height: 1.35;
+          letter-spacing: .08em;
+        }
+
+        #inicio .ra3-income-value {
+          display: flex;
+          align-items: baseline;
+          flex-wrap: wrap;
+          gap: 7px;
+          width: 100%;
+          margin: 0 0 8px;
+        }
+
+        #inicio .ra3-income-value .ra3-prefix,
+        #inicio .ra3-income-value .ra3-suffix {
+          font-size: 15px;
+          font-weight: 800;
+          line-height: 1;
+        }
+
+        #inicio .ra3-income-value .ra3-amount {
+          font-size: clamp(44px, 5vw, 68px);
+          font-weight: 900;
+          line-height: .95;
+          letter-spacing: -.04em;
+          white-space: nowrap;
+        }
+
+        #inicio .ra3-income p {
+          max-width: 560px;
+          margin: 0;
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        #inicio #hero-title {
+          display: block !important;
+          width: 100% !important;
+          max-width: 650px !important;
+          min-width: 0 !important;
+          margin: 0 0 19px !important;
+          padding: 0 !important;
+          font-size: clamp(42px, 4.8vw, 66px) !important;
+          line-height: 1 !important;
+          letter-spacing: -.035em !important;
+          text-align: left !important;
+          white-space: normal !important;
+          word-break: normal !important;
+          overflow-wrap: normal !important;
+          overflow: visible !important;
+        }
+
+        #inicio #hero-title em {
+          display: inline !important;
+          white-space: normal !important;
+        }
+
+        #inicio .ra3-lead {
+          width: 100%;
+          max-width: 615px;
+          margin: 0 0 24px;
+          font-size: 17px;
+          line-height: 1.62;
+        }
+
+        #inicio .ra3-benefits {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 9px;
+          width: 100%;
+          margin: 0 0 27px;
+        }
+
+        #inicio .ra3-benefit {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          min-width: 0;
+          padding: 10px 12px;
+          border: 1px solid rgba(255, 255, 255, .13);
+          border-radius: 999px;
+          background: rgba(255, 255, 255, .07);
+          line-height: 1.25;
+        }
+
+        #inicio .ra3-benefit svg {
+          flex: 0 0 17px;
+          width: 17px;
+          height: 17px;
+          fill: none;
+          stroke: currentColor;
+          stroke-width: 2.5;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+
+        #inicio .ra3-offer {
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          width: 100%;
+          margin: 0 0 16px;
+        }
+
+        #inicio .ra3-price {
+          flex: 0 0 auto;
+          text-align: left;
+        }
+
+        #inicio .ra3-price small,
+        #inicio .ra3-price span,
+        #inicio .ra3-price strong {
+          display: block;
+        }
+
+        #inicio .ra3-price strong {
+          margin: 2px 0;
+          line-height: .95;
+        }
+
+        #inicio .ra3-price strong sup {
+          font-size: .4em;
+          vertical-align: super;
+        }
+
+        #inicio .ra3-cta.button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 250px;
+          max-width: 100%;
+          text-align: center;
+          white-space: normal;
+        }
+
+        #inicio .ra3-security,
+        #inicio .ra3-disclaimer {
+          width: 100%;
+          max-width: 610px;
+          margin-left: 0;
+          margin-right: 0;
+        }
+
+        #inicio .ra3-photo-wrap {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-width: 0;
+        }
+
+        #inicio .ra3-photo-card {
+          position: relative;
+          width: min(100%, 540px);
+          margin: 0 auto;
+          padding: 20px 20px 0;
+          border: 1px solid rgba(255, 255, 255, .13);
+          border-radius: 38px;
+          background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .025));
+          box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+          overflow: hidden;
+        }
+
+        #inicio .ra3-photo-card::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 51%;
+          width: 78%;
+          aspect-ratio: 1;
+          transform: translate(-50%, -50%);
+          border: 1px solid rgba(255, 255, 255, .14);
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 123, 69, .18), rgba(255, 255, 255, .03) 58%, transparent 70%);
+        }
+
+        #inicio .ra3-photo-card img {
+          position: relative;
+          z-index: 1;
+          display: block;
+          width: 100%;
+          height: auto;
+          max-height: 680px;
+          margin: 0 auto;
+          object-fit: contain;
+          object-position: center bottom;
+        }
+
+        /* TABLET */
+        @media (max-width: 980px) {
+          #inicio .ra3-shell {
+            grid-template-columns: minmax(0, 1fr) minmax(280px, .75fr);
+            gap: 28px;
+            width: min(100% - 36px, 960px);
+            padding-top: 112px;
+          }
+
+          #inicio #hero-title {
+            font-size: clamp(38px, 5.5vw, 54px) !important;
+          }
+
+          #inicio .ra3-income-value .ra3-amount {
+            font-size: clamp(40px, 6vw, 56px);
+          }
+        }
+
+        /* =========================================================
+           MOBILE — uma única coluna, tudo centralizado e sem cortes
+        ========================================================== */
+        @media (max-width: 767px) {
+          #inicio.ra3-hero {
+            min-height: 0 !important;
+            height: auto !important;
+            overflow: hidden !important;
+          }
+
+          #inicio .reveal,
+          #inicio .reveal--delay,
+          #inicio .reveal--delay-2 {
+            opacity: 1 !important;
+            transform: none !important;
+            translate: none !important;
+          }
+
+          #inicio .ra3-bg img {
+            object-position: 50% top;
+          }
+
+          #inicio .ra3-bg::after {
+            background:
+              radial-gradient(circle at 50% 25%, rgba(255, 107, 56, .11), transparent 31%),
+              linear-gradient(180deg, rgba(7, 8, 21, .94) 0%, rgba(7, 8, 21, .97) 46%, rgba(7, 8, 21, .99) 100%);
+          }
+
+          #inicio .ra3-shell {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            height: auto !important;
+            margin: 0 auto !important;
+            padding: calc(104px + env(safe-area-inset-top)) 16px 54px !important;
+            gap: 30px !important;
+          }
+
+          #inicio .ra3-copy {
+            order: 1;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100% !important;
+            max-width: 520px !important;
+            min-width: 0 !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-brand {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            max-width: 390px !important;
+            margin: 0 auto 20px !important;
+            gap: 8px !important;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-brand img {
+            flex: none !important;
+            width: 88px !important;
+            max-width: 88px !important;
+            height: auto !important;
+            margin: 0 auto !important;
+          }
+
+          #inicio .ra3-brand-copy {
+            width: 100% !important;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-brand-copy strong {
+            font-size: 17px;
+          }
+
+          #inicio .ra3-brand-copy span {
+            font-size: 14px;
+          }
+
+          #inicio .ra3-income {
+            width: 100% !important;
+            max-width: 460px !important;
+            margin: 0 auto 24px !important;
+            padding: 16px 14px !important;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-income-kicker {
+            width: 100%;
+            margin: 0 auto 10px;
+            font-size: clamp(10px, 2.9vw, 12px);
+            letter-spacing: .055em;
+            white-space: normal;
+          }
+
+          #inicio .ra3-income-value {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            justify-items: center !important;
+            gap: 4px !important;
+            width: 100% !important;
+            margin: 0 auto 9px !important;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-income-value .ra3-prefix,
+          #inicio .ra3-income-value .ra3-suffix {
+            display: block;
+            font-size: 12px;
+          }
+
+          #inicio .ra3-income-value .ra3-amount {
+            display: block;
+            max-width: 100%;
+            font-size: clamp(38px, 12vw, 54px);
+            line-height: 1;
+            white-space: nowrap;
+          }
+
+          #inicio .ra3-income p {
+            width: 100%;
+            max-width: 390px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: center;
+          }
+
+          #inicio #hero-title {
+            width: 100% !important;
+            max-width: 500px !important;
+            min-width: 0 !important;
+            margin: 0 auto 17px !important;
+            padding: 0 !important;
+            font-size: clamp(30px, 8.8vw, 43px) !important;
+            line-height: 1.07 !important;
+            letter-spacing: -.025em !important;
+            text-align: center !important;
+            white-space: normal !important;
+            word-break: normal !important;
+            overflow-wrap: break-word !important;
+            text-wrap: balance !important;
+          }
+
+          #inicio .ra3-lead {
+            width: 100% !important;
+            max-width: 480px !important;
+            margin: 0 auto 22px !important;
+            padding: 0 2px !important;
+            font-size: 15.5px !important;
+            line-height: 1.58 !important;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-benefits {
+            display: grid !important;
+            grid-template-columns: minmax(0, 1fr) !important;
+            width: 100% !important;
+            max-width: 420px !important;
+            margin: 0 auto 24px !important;
+            gap: 9px !important;
+          }
+
+          #inicio .ra3-benefit {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 11px 12px !important;
+            border-radius: 14px !important;
+            text-align: center !important;
+            white-space: normal !important;
+          }
+
+          #inicio .ra3-offer {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100% !important;
+            max-width: 420px !important;
+            min-width: 0 !important;
+            margin: 0 auto 16px !important;
+            gap: 15px !important;
+          }
+
+          #inicio .ra3-price {
+            width: 100%;
+            text-align: center !important;
+          }
+
+          #inicio .ra3-cta.button,
+          #inicio .ra3-cta.button--primary,
+          #inicio .ra3-cta.button--large {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            max-width: 400px !important;
+            min-width: 0 !important;
+            margin: 0 auto !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            text-align: center !important;
+            white-space: normal !important;
+          }
+
+          #inicio .ra3-security,
+          #inicio .ra3-disclaimer {
+            width: 100% !important;
+            max-width: 450px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 4px !important;
+            padding-right: 4px !important;
+            text-align: center !important;
+            white-space: normal !important;
+            overflow-wrap: break-word !important;
+          }
+
+          #inicio .ra3-photo-wrap {
+            order: 2;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            max-width: 420px !important;
+            min-width: 0 !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+          }
+
+          #inicio .ra3-photo-card {
+            width: 100% !important;
+            max-width: 360px !important;
+            margin: 0 auto !important;
+            padding: 14px 14px 0 !important;
+            border-radius: 28px !important;
+          }
+
+          #inicio .ra3-photo-card img {
+            width: 100% !important;
+            max-width: 330px !important;
+            height: auto !important;
+            max-height: none !important;
+            margin: 0 auto !important;
+            object-fit: contain !important;
+            object-position: center bottom !important;
+          }
+
+          #inicio .scroll-cue {
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 430px) {
+          #inicio .ra3-shell {
+            padding-left: 14px !important;
+            padding-right: 14px !important;
+          }
+
+          #inicio #hero-title {
+            font-size: clamp(28px, 8.6vw, 37px) !important;
+          }
+
+          #inicio .ra3-income-value .ra3-amount {
+            font-size: clamp(36px, 11.7vw, 48px);
+          }
+
+          #inicio .ra3-photo-card {
+            max-width: 330px !important;
+          }
+
+          #inicio .ra3-photo-card img {
+            max-width: 305px !important;
+          }
+        }
+
+        @media (max-width: 360px) {
+          #inicio .ra3-shell {
+            padding-left: 11px !important;
+            padding-right: 11px !important;
+          }
+
+          #inicio #hero-title {
+            font-size: 27px !important;
+            line-height: 1.09 !important;
+          }
+
+          #inicio .ra3-income-value .ra3-amount {
+            font-size: 34px !important;
+          }
+
+          #inicio .ra3-cta.button {
+            font-size: 14px !important;
+          }
+        }
+      </style>
+
+      <div class="ra3-bg" aria-hidden="true">
+        <img src="{{ url_for('static', filename='img/hero-bg.webp') }}" alt="" width="1600" height="1000" fetchpriority="high">
+      </div>
+
+      <div class="ra3-shell">
+        <div class="ra3-copy reveal">
+          <div class="ra3-brand">
+            <img src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada" width="640" height="640">
+            <div class="ra3-brand-copy">
+              <strong>Sua história merece ser revivida</strong>
+              <span>Aprenda uma habilidade criativa, prática e vendável</span>
+            </div>
+          </div>
+
+          <div class="ra3-income" aria-label="Destaque de renda extra">
+            <span class="ra3-income-kicker">APRENDA A CRIAR E BUSQUE UMA RENDA EXTRA</span>
+            <div class="ra3-income-value">
+              <span class="ra3-prefix">ATÉ</span>
+              <strong class="ra3-amount">R$ 5.000</strong>
+              <span class="ra3-suffix">/ MÊS*</span>
+            </div>
+            <p>criando retrospectivas animadas para aniversários, casamentos, formaturas e homenagens.</p>
+          </div>
+
+          <h1 id="hero-title">Crie vídeos com fotos que emocionam — e transforme isso em <em>renda extra.</em></h1>
+
+          <p class="ra3-lead">Comece do zero usando apenas seu <strong>celular ou computador</strong>. Aulas gravadas em vídeo, método passo a passo, retrospectivas editáveis e suporte para você aprender no seu ritmo.</p>
+
+          <div class="ra3-benefits" aria-label="Principais benefícios">
+            <span class="ra3-benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Sem precisar aparecer
+            </span>
+            <span class="ra3-benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Trabalhe de casa
+            </span>
+            <span class="ra3-benefit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+              Comece com o que já tem
+            </span>
+          </div>
+
+          <div class="ra3-offer">
+            <div class="ra3-price price-lockup">
+              <small>De <s>R$ 297</s> por</small>
+              <strong><sup>R$</sup> 97</strong>
+              <span>pagamento único</span>
+            </div>
+
+            <a class="button button--primary button--large ra3-cta" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">
+              Quero começar agora
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+
+          <p class="secure-note ra3-security">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg>
+            Compra processada em ambiente seguro pela Hotmart
+          </p>
+
+          <p class="income-disclaimer ra3-disclaimer">*O valor de R$ 5.000/mês é um potencial apresentado no material do curso. Resultados variam e não são garantidos.</p>
         </div>
 
-      </div>
-
-
-      <!-- RENDA -->
-      <div
-        class="hero-income"
-        aria-label="Destaque de renda extra"
-      >
-
-        <span class="hero-income-label">
-          APRENDA A CRIAR E BUSQUE UMA RENDA EXTRA
-        </span>
-
-        <strong class="hero-income-value">
-          <small>ATÉ</small>
-          R$ 5.000
-          <small>/ MÊS*</small>
-        </strong>
-
-        <p>
-          criando retrospectivas animadas para aniversários,
-          casamentos, formaturas e homenagens.
-        </p>
-
-      </div>
-
-
-      <!-- TÍTULO -->
-      <h1 id="hero-title">
-        Crie vídeos com fotos que emocionam — e transforme isso em
-        <em>renda extra.</em>
-      </h1>
-
-
-      <!-- DESCRIÇÃO -->
-      <p class="hero-description">
-        Comece do zero usando apenas seu
-        <strong>celular ou computador</strong>.
-        Aulas gravadas em vídeo, método passo a passo,
-        retrospectivas editáveis e suporte para você aprender no seu ritmo.
-      </p>
-
-
-      <!-- BENEFÍCIOS -->
-      <div
-        class="hero-benefits"
-        aria-label="Principais benefícios"
-      >
-
-        <span class="hero-benefit">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m5 12 4 4L19 6"/>
-          </svg>
-
-          Sem precisar aparecer
-        </span>
-
-
-        <span class="hero-benefit">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m5 12 4 4L19 6"/>
-          </svg>
-
-          Trabalhe de casa
-        </span>
-
-
-        <span class="hero-benefit">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m5 12 4 4L19 6"/>
-          </svg>
-
-          Comece com o que já tem
-        </span>
-
-      </div>
-
-
-      <!-- OFERTA -->
-      <div class="hero-buy">
-
-        <div class="hero-price">
-
-          <small>
-            De <s>R$ 297</s> por
-          </small>
-
-          <strong>
-            <sup>R$</sup> 97
-          </strong>
-
-          <span>
-            pagamento único
-          </span>
-
+        <div class="ra3-photo-wrap reveal reveal--delay">
+          <div class="ra3-photo-card">
+            <img src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}" alt="Júlio Neves, criador do curso Retrospectiva Animada" width="1400" height="1400" fetchpriority="high">
+          </div>
         </div>
-
-
-        <a
-          class="button button--primary button--large"
-          href="{{ checkout_url }}"
-          target="_blank"
-          rel="sponsored nofollow noopener"
-        >
-          Quero começar agora
-
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="m9 18 6-6-6-6"/>
-          </svg>
-        </a>
-
       </div>
 
-
-      <!-- SEGURANÇA -->
-      <p class="secure-note hero-security">
-
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/>
-        </svg>
-
-        Compra processada em ambiente seguro pela Hotmart
-      </p>
-
-
-      <!-- DISCLAIMER -->
-      <p class="income-disclaimer hero-disclaimer">
-        *O valor de R$ 5.000/mês é um potencial apresentado
-        no material do curso. Resultados variam e não são garantidos.
-      </p>
-
-    </div>
-
-
-    <!-- FOTO -->
-    <div class="hero-photo-area reveal reveal--delay">
-
-      <div class="hero-person">
-
-        <img
-          src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}"
-          alt="Júlio Neves, criador do curso Retrospectiva Animada"
-          width="1400"
-          height="1400"
-          fetchpriority="high"
-        >
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <a
-    class="scroll-cue"
-    href="#oportunidade"
-    aria-label="Conhecer os benefícios do curso"
-  >
-    <span></span>
-  </a>
-
-</section>
+      <a class="scroll-cue" href="#oportunidade" aria-label="Conhecer os benefícios do curso"><span></span></a>
+    </section>
 
     <section class="promise-strip" aria-label="Resumo do curso">
       <div class="container promise-grid">
