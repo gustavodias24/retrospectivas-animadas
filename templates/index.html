@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Retrospectiva Animada | Transforme histórias em vídeos que emocionam</title>
-  <meta name="description" content="Aprenda do zero a criar retrospectivas animadas pelo celular ou computador, com aulas práticas, materiais editáveis e suporte exclusivo.">
+  <meta name="description" content="Aprenda do zero a criar retrospectivas animadas pelo celular ou computador, com aulas práticas, bônus editáveis, suporte exclusivo e uma habilidade que pode se transformar em renda extra.">
   <meta name="theme-color" content="#090a0c">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Retrospectiva Animada">
   <meta property="og:description" content="Sua história merece ser revivida — e essa habilidade pode se transformar em renda extra.">
-  <meta property="og:image" content="{{ url_for('static', filename='img/hero-bg.webp', _external=True) }}">
+  <meta property="og:image" content="{{ url_for('static', filename='img/logo-retrospectiva.webp', _external=True) }}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23090a0c%22/><path d=%22M16 20h32v24H16z%22 fill=%22none%22 stroke=%22%23ff5a2c%22 stroke-width=%225%22/><path d=%22m27 26 13 6-13 7z%22 fill=%22%23ffb347%22/></svg>">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script type="application/ld+json">
@@ -38,8 +38,8 @@
 
   <header class="site-header" data-header>
     <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Retrospectiva Animada — início">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <a class="brand brand--with-logo" href="#inicio" aria-label="Retrospectiva Animada — início">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada — Aqui sua história vira filme" width="640" height="640">
         <span class="brand-copy"><strong>Retrospectiva</strong><em>Animada</em></span>
       </a>
 
@@ -49,6 +49,7 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegação principal" data-nav>
+        <a href="#oportunidade">Renda extra</a>
         <a href="#curso">O curso</a>
         <a href="#para-quem">Para quem é</a>
         <a href="#conteudo-curso">Conteúdo</a>
@@ -72,14 +73,24 @@
 
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> Do zero à sua primeira retrospectiva</p>
-          <h1 id="hero-title">Sua história merece ser <em>revivida.</em></h1>
-          <p class="hero-lead">Aprenda a criar retrospectivas animadas que emocionam e transforme uma habilidade criativa em uma nova possibilidade de renda — usando apenas seu celular ou computador.</p>
+          <div class="hero-logo-lockup">
+            <img src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada" width="640" height="640">
+            <div><strong>Sua história merece ser revivida</strong><span>Aprenda uma habilidade criativa, prática e vendável</span></div>
+          </div>
+
+          <div class="hero-income-highlight" aria-label="Destaque de renda extra">
+            <span class="hero-income-kicker">APRENDA A CRIAR E BUSQUE UMA RENDA EXTRA</span>
+            <strong><small>ATÉ</small> R$ 5.000 <small>/ MÊS*</small></strong>
+            <p>criando retrospectivas animadas para aniversários, casamentos, formaturas e homenagens.</p>
+          </div>
+
+          <h1 id="hero-title">Transforme fotos em vídeos que emocionam — e uma habilidade em <em>renda extra.</em></h1>
+          <p class="hero-lead">Comece do zero usando apenas seu <strong>celular ou computador</strong>. Aulas gravadas em vídeo, método passo a passo, retrospectivas editáveis e suporte para você aprender no seu ritmo.</p>
 
           <div class="hero-points" aria-label="Principais benefícios">
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Método direto</span>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Aulas gravadas</span>
-            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Materiais editáveis</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Sem precisar aparecer</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Trabalhe de casa</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Comece com o que já tem</span>
           </div>
 
           <div class="hero-offer">
@@ -94,36 +105,75 @@
             </a>
           </div>
           <p class="secure-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6z"/></svg> Compra processada em ambiente seguro pela Hotmart</p>
+          <p class="income-disclaimer">*O valor de R$ 5.000/mês é um potencial apresentado no material do curso. Resultados variam e não são garantidos.</p>
         </div>
 
         <div class="hero-visual reveal reveal--delay">
-          <div class="portrait-stage">
+          <div class="portrait-stage portrait-stage--photo">
             <div class="portrait-ring" aria-hidden="true"></div>
-            <img src="{{ url_for('static', filename='img/julio-portrait.webp') }}" alt="Júlio Neves, criador do curso Retrospectiva Animada" width="435" height="613">
+            <div class="portrait-photo-frame">
+              <img src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}" alt="Júlio Neves, criador do curso Retrospectiva Animada" width="1400" height="1400" fetchpriority="high">
+            </div>
             <div class="floating-card floating-card--top">
               <span class="pulse-dot"></span>
-              <strong>100% online</strong>
-              <small>Assista no seu ritmo</small>
+              <strong>15+ anos</strong>
+              <small>vídeo e fotografia</small>
             </div>
             <div class="floating-card floating-card--bottom">
               <strong>Aulas + bônus</strong>
-              <small>Conteúdo prático</small>
+              <small>retrospectivas editáveis</small>
             </div>
           </div>
         </div>
       </div>
 
-      <a class="scroll-cue" href="#video" aria-label="Ir para o vídeo de apresentação">
+      <a class="scroll-cue" href="#oportunidade" aria-label="Conhecer os benefícios do curso">
         <span></span>
       </a>
     </section>
 
     <section class="promise-strip" aria-label="Resumo do curso">
       <div class="container promise-grid">
-        <div><strong>Comece do zero</strong><span>Sem experiência prévia</span></div>
-        <div><strong>Celular ou computador</strong><span>Use o que já tem</span></div>
-        <div><strong>Aulas em vídeo</strong><span>Aprendizado no seu ritmo</span></div>
+        <div><strong>Até R$ 5 mil/mês*</strong><span>Potencial de renda extra</span></div>
+        <div><strong>Celular ou computador</strong><span>Comece com o que já tem</span></div>
+        <div><strong>Sem precisar aparecer</strong><span>Produza de onde estiver</span></div>
         <div class="promise-action"><a href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Garantir acesso <span>→</span></a></div>
+      </div>
+    </section>
+
+
+    <section class="section opportunity-section" id="oportunidade" aria-labelledby="opportunity-hook-title">
+      <div class="container opportunity-banner reveal">
+        <div class="opportunity-banner__copy">
+          <p class="eyebrow"><span></span> Uma habilidade que pode virar serviço</p>
+          <h2 id="opportunity-hook-title">Imagine ser a pessoa que cria os vídeos que todo mundo quer ver <em>de novo.</em></h2>
+          <p>Todo aniversário, casamento, formatura ou homenagem precisa de algo especial. Você pode aprender a transformar fotos e vídeos em retrospectivas emocionantes e oferecer esse trabalho para outras pessoas.</p>
+        </div>
+        <div class="opportunity-banner__number" aria-label="Potencial de renda de até cinco mil reais por mês">
+          <small>POTENCIAL DE RENDA EXTRA*</small>
+          <strong><span>R$</span> 5.000</strong>
+          <em>por mês</em>
+        </div>
+      </div>
+
+      <div class="container attention-grid">
+        <article class="attention-card reveal">
+          <span>01</span><h3>Sem precisar aparecer</h3><p>Você trabalha nos bastidores, criando histórias e entregando um produto final emocionante.</p>
+        </article>
+        <article class="attention-card reveal reveal--delay">
+          <span>02</span><h3>Sem investimento alto</h3><p>Comece usando o celular ou computador que você já possui e evolua conforme seus resultados.</p>
+        </article>
+        <article class="attention-card reveal">
+          <span>03</span><h3>Trabalhe de casa</h3><p>Organize seu tempo e produza pela internet, sem depender de uma estrutura profissional para começar.</p>
+        </article>
+        <article class="attention-card reveal reveal--delay">
+          <span>04</span><h3>Venda emoção</h3><p>Casamentos, aniversários, formaturas e homenagens têm alto valor emocional e acontecem o ano inteiro.</p>
+        </article>
+      </div>
+
+      <div class="section-cta center reveal">
+        <a class="button button--primary button--large" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero aprender e começar <span>→</span></a>
+        <small>*Não existe garantia de renda. Resultados dependem de dedicação, aplicação e mercado.</small>
       </div>
     </section>
 
@@ -153,26 +203,27 @@
       <div class="container split-grid">
         <div class="media-card reveal">
           <img src="{{ url_for('static', filename='img/creator-workspace.webp') }}" alt="Criador editando uma retrospectiva em casa" width="1200" height="900" loading="lazy">
-          <div class="media-badge"><strong>Uma habilidade.</strong><span>Muitas histórias.</span></div>
+          <div class="media-badge"><strong>Uma habilidade.</strong><span>Muitas histórias para transformar.</span></div>
         </div>
         <div class="content-stack reveal reveal--delay">
-          <p class="eyebrow"><span></span> Histórias têm valor</p>
-          <h2 id="opportunity-title">Você já percebeu como toda celebração precisa de algo <em>especial?</em></h2>
-          <p>Casamentos, aniversários, formaturas e homenagens acontecem todos os dias. Por trás de cada evento, existe alguém procurando uma forma bonita de contar aquela história.</p>
+          <p class="eyebrow"><span></span> Por que isso pode virar renda extra?</p>
+          <h2 id="opportunity-title">Eventos acontecem todos os dias. E cada um deles pode precisar de uma <em>retrospectiva inesquecível.</em></h2>
+          <p>Você aprende uma técnica que pode ser aplicada em aniversários, casamentos, formaturas, homenagens, histórias de família e muitos outros momentos especiais.</p>
           <div class="quote-card">
             <span class="quote-mark">“</span>
-            <p>Agora imagine ser a pessoa que transforma essas memórias em vídeos emocionantes — sem precisar aparecer e começando com o equipamento que já possui.</p>
+            <p>Imagine receber as fotos de uma família, organizar aquela história e entregar um vídeo que emociona todo mundo — trabalhando de casa e sem precisar aparecer.</p>
           </div>
-          <div class="income-claim">
-            <strong>Potencial de até R$ 5 mil/mês*</strong>
-            <span>Possibilidade apresentada no material do curso; não representa promessa ou garantia de resultado.</span>
+          <div class="income-claim income-claim--strong">
+            <strong>ATÉ R$ 5.000/MÊS EM RENDA EXTRA*</strong>
+            <span>Potencial apresentado no material do curso. Não é promessa de ganho; seus resultados dependem da sua dedicação, aplicação e mercado.</span>
           </div>
           <ul class="check-list">
-            <li><span>01</span><p><strong>Crie de qualquer lugar</strong> com um fluxo de produção acessível.</p></li>
-            <li><span>02</span><p><strong>Monte seu portfólio</strong> com materiais prontos para editar.</p></li>
-            <li><span>03</span><p><strong>Ofereça um serviço</strong> ligado a momentos de alto valor emocional.</p></li>
+            <li><span>01</span><p><strong>Comece do zero</strong> com aulas gravadas e explicações diretas.</p></li>
+            <li><span>02</span><p><strong>Use celular ou computador</strong> para produzir suas primeiras retrospectivas.</p></li>
+            <li><span>03</span><p><strong>Crie um portfólio</strong> com os materiais editáveis disponibilizados no curso.</p></li>
+            <li><span>04</span><p><strong>Ofereça o serviço pela internet</strong> e transforme sua habilidade em uma possibilidade de renda.</p></li>
           </ul>
-          <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero transformar histórias <span>→</span></a>
+          <a class="button button--primary" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero transformar histórias em renda <span>→</span></a>
         </div>
       </div>
     </section>
@@ -260,9 +311,9 @@
       <div class="container section-heading reveal">
         <div>
           <p class="eyebrow"><span></span> Diferenciais do curso</p>
-          <h2 id="benefits-title">Tudo pensado para você <em>sair do zero</em></h2>
+          <h2 id="benefits-title">O que você recebe para <em>começar de verdade</em></h2>
         </div>
-        <p>Conteúdo direto, materiais de apoio e um ambiente para tirar dúvidas durante sua evolução.</p>
+        <p>Aulas gravadas em vídeo, brindes exclusivos, materiais editáveis e suporte: tudo reunido para você começar com mais segurança e clareza.</p>
       </div>
 
       <div class="container benefits-grid">
@@ -318,16 +369,19 @@
 
     <section class="section instructor-section" aria-labelledby="instructor-title">
       <div class="container instructor-grid">
-        <div class="instructor-visual reveal">
+        <div class="instructor-visual instructor-visual--photo reveal">
           <div class="instructor-halo" aria-hidden="true"></div>
-          <img src="{{ url_for('static', filename='img/julio-portrait.webp') }}" alt="Júlio Neves com celular em mãos" width="435" height="613" loading="lazy">
+          <div class="instructor-photo-card">
+            <img src="{{ url_for('static', filename='img/julio-neves-hq.webp') }}" alt="Júlio Neves segurando um celular" width="1400" height="1400" loading="lazy">
+          </div>
           <span class="signature">Júlio Neves</span>
         </div>
         <div class="content-stack reveal reveal--delay">
-          <p class="eyebrow"><span></span> Conheça seu mentor</p>
-          <h2 id="instructor-title">Experiência de quem vive de <em>contar histórias</em></h2>
-          <p>Júlio Neves é videomaker e fotógrafo há mais de 15 anos. Ao longo dessa trajetória, desenvolveu uma técnica de vídeos de retrospectivas emocionantes que também se tornou uma oportunidade de trabalho.</p>
-          <div class="mentor-note"><strong>15+ anos</strong><span>de experiência com vídeo e fotografia</span></div>
+          <p class="eyebrow"><span></span> Quem é Júlio Neves?</p>
+          <h2 id="instructor-title">Mais de 15 anos transformando momentos em <em>histórias em vídeo.</em></h2>
+          <p>Júlio Neves é videomaker e fotógrafo há mais de 15 anos. Nesse período, criou uma técnica de vídeos de retrospectivas emocionantes e percebeu que esse tipo de trabalho também pode se transformar em uma fonte de renda.</p>
+          <p>O curso reúne o método de forma prática para quem quer aprender desde o início, produzir para clientes ou até criar retrospectivas para a própria família.</p>
+          <div class="mentor-note"><strong>15+ anos</strong><span>de experiência com vídeo, fotografia e narrativas emocionais</span></div>
           <a class="button button--outline" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">Quero aprender com o Júlio <span>→</span></a>
         </div>
       </div>
@@ -338,7 +392,7 @@
       <div class="container offer-card reveal">
         <div class="offer-content">
           <p class="eyebrow"><span></span> Comece hoje</p>
-          <h2 id="offer-title">Leve o método completo por um valor <em>especial</em></h2>
+          <h2 id="offer-title">Comece agora com aulas, brindes exclusivos, bônus e suporte por <em>R$ 97</em></h2>
           <ul class="offer-list">
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Aulas práticas gravadas em vídeo</li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Método para celular ou computador</li>
@@ -347,7 +401,7 @@
           </ul>
         </div>
         <div class="checkout-card">
-          <span class="offer-chip">Oferta apresentada no material</span>
+          <span class="offer-chip">Acesso ao curso completo</span>
           <p>De <s>R$ 297</s> por apenas</p>
           <strong class="checkout-price"><sup>R$</sup> 97</strong>
           <span>pagamento único</span>
@@ -405,8 +459,8 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <a class="brand brand--footer" href="#inicio" aria-label="Voltar ao início">
-        <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <a class="brand brand--footer brand--with-logo" href="#inicio" aria-label="Voltar ao início">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada" width="640" height="640" loading="lazy">
         <span class="brand-copy"><strong>Retrospectiva</strong><em>Animada</em></span>
       </a>
       <p>Conteúdo educacional para criação de retrospectivas animadas.</p>
