@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Retrospectiva Animada | Transforme histórias em vídeos que emocionam</title>
-  <meta name="description" content="Aprenda do zero a criar retrospectivas animadas pelo celular ou computador, com aulas práticas, bônus editáveis, suporte exclusivo e uma habilidade que pode se transformar em renda extra.">
+  <title>Retrospectivas Animadas com IA | Transforme histórias em vídeos que emocionam</title>
+  <meta name="description" content="Aprenda do zero a criar retrospectivas animadas com IA pelo celular ou computador, com aulas práticas, bônus editáveis, suporte exclusivo e uma habilidade que pode se transformar em renda extra.">
   <meta name="theme-color" content="#090a0c">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Retrospectiva Animada">
+  <meta property="og:title" content="Retrospectivas Animadas com IA">
   <meta property="og:description" content="Sua história merece ser revivida — e essa habilidade pode se transformar em renda extra.">
-  <meta property="og:image" content="{{ url_for('static', filename='img/logo-retrospectiva.webp', _external=True) }}">
+  <meta property="og:image" content="{{ url_for('static', filename='img/logo-retrospectiva.png', _external=True) }}">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23090a0c%22/><path d=%22M16 20h32v24H16z%22 fill=%22none%22 stroke=%22%23ff5a2c%22 stroke-width=%225%22/><path d=%22m27 26 13 6-13 7z%22 fill=%22%23ffb347%22/></svg>">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -19,8 +19,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "Retrospectiva Animada",
-    "description": "Curso online com aulas gravadas para aprender a criar retrospectivas animadas pelo celular ou computador.",
+    "name": "Retrospectivas Animadas com IA",
+    "description": "Curso online com aulas gravadas para aprender a criar retrospectivas animadas com IA pelo celular ou computador.",
     "provider": {
       "@type": "Person",
       "name": "Júlio Neves"
@@ -41,7 +41,7 @@
   <header class="site-header" data-header>
     <div class="container header-inner">
       <a class="brand brand--with-logo" href="#inicio" aria-label="Retrospectiva Animada — início">
-        <img class="brand-logo" src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada — Aqui sua história vira filme" width="640" height="640">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/logo-retrospectiva.png') }}" alt="Retrospectiva Animada — Aqui sua história vira filme" width="640" height="640">
         <span class="brand-copy"><strong>Retrospectiva</strong><em>Animada</em></span>
       </a>
 
@@ -74,10 +74,10 @@
       <div class="ra3-shell">
         <div class="ra3-copy reveal">
           <div class="ra3-brand">
-            <img src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada" width="640" height="640">
+            <img src="{{ url_for('static', filename='img/logo-retrospectiva.png') }}" alt="Retrospectiva Animada" width="640" height="640">
             <div class="ra3-brand-copy">
               <strong>Sua história merece ser revivida</strong>
-              <span>Aprenda uma habilidade criativa, prática e vendável</span>
+              <span>Aprenda a criar com mais praticidade usando inteligência artificial</span>
             </div>
           </div>
 
@@ -88,12 +88,12 @@
               <strong class="ra3-amount">R$ 5.000</strong>
               <span class="ra3-suffix">/ MÊS*</span>
             </div>
-            <p>criando retrospectivas animadas para aniversários, casamentos, formaturas e homenagens.</p>
+            <p>criando retrospectivas animadas com IA para aniversários, casamentos, formaturas e homenagens.</p>
           </div>
 
-          <h1 id="hero-title">Crie vídeos com fotos que emocionam — e transforme isso em <em>renda extra.</em></h1>
+          <h1 id="hero-title">Crie <span class="ai-title-highlight">retrospectivas animadas com IA</span> que emocionam — e transforme isso em <em>renda extra.</em></h1>
 
-          <p class="ra3-lead">Comece do zero usando apenas seu <strong>celular ou computador</strong>. Aulas gravadas em vídeo, método passo a passo, retrospectivas editáveis e suporte para você aprender no seu ritmo.</p>
+          <p class="ra3-lead">Comece do zero usando apenas seu <strong>celular ou computador</strong>. Com a ajuda da <strong>inteligência artificial</strong>, você torna a criação mais prática e ágil, seguindo aulas gravadas, método passo a passo, retrospectivas editáveis e suporte.</p>
 
           <div class="ra3-benefits" aria-label="Principais benefícios">
             <span class="ra3-benefit">
@@ -106,7 +106,7 @@
             </span>
             <span class="ra3-benefit">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
-              Comece com o que já tem
+              IA para facilitar a criação
             </span>
           </div>
 
@@ -117,10 +117,16 @@
               <span>pagamento único</span>
             </div>
 
-            <a class="button button--primary button--large ra3-cta" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">
-              Quero começar agora
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-            </a>
+            <div class="ra3-offer-actions">
+              <a class="button button--primary button--large ra3-cta" href="{{ checkout_url }}" target="_blank" rel="sponsored nofollow noopener">
+                Quero começar agora
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <button class="button button--packages ra3-package-cta" type="button" data-packages-open aria-haspopup="dialog">
+                Compra a sua retrospectiva
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/></svg>
+              </button>
+            </div>
           </div>
 
           <p class="secure-note ra3-security">
@@ -320,7 +326,7 @@
       <div class="container section-heading reveal">
         <div>
           <p class="eyebrow"><span></span> Diferenciais do curso</p>
-          <h2 id="benefits-title">O que você recebe para <em>começar de verdade</em></h2>
+          <h2 id="benefits-title">Retrospectivas Animadas <span class="ai-inline">com IA</span>: mais facilidade para <em>começar de verdade</em></h2>
         </div>
         <p>Aulas gravadas em vídeo, brindes exclusivos, materiais editáveis e suporte: tudo reunido para você começar com mais segurança e clareza.</p>
       </div>
@@ -329,8 +335,8 @@
         <article class="benefit-card reveal">
           <span class="benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m7 17 6 6L26 7"/></svg></span>
           <small>01</small>
-          <h3>Método simples e direto</h3>
-          <p>Uma sequência clara para começar a criar suas retrospectivas e desenvolver a habilidade.</p>
+          <h3>Método simples e direto com IA</h3>
+          <p>Uma sequência clara para criar retrospectivas animadas com IA de forma mais prática, mesmo começando do zero.</p>
         </article>
         <article class="benefit-card reveal reveal--delay">
           <span class="benefit-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h18v22H7zM11 11h10M11 16h10M11 21h6"/></svg></span>
@@ -340,7 +346,7 @@
         </article>
         <article class="benefit-card benefit-card--image reveal">
           <img src="{{ url_for('static', filename='img/bonus-pack.webp') }}" alt="Conjunto visual de modelos e materiais criativos" width="1200" height="900" loading="lazy">
-          <div><small>Bônus</small><h3>Pacote de retrospectivas animadas editáveis</h3></div>
+          <div><small>Bônus</small><h3>Modelos editáveis para suas retrospectivas com IA</h3></div>
         </article>
         <article class="benefit-card benefit-card--image reveal reveal--delay">
           <img src="{{ url_for('static', filename='img/support-community.webp') }}" alt="Comunidade online colaborando e compartilhando materiais" width="1200" height="900" loading="lazy">
@@ -443,7 +449,7 @@
           </details>
           <details>
             <summary>O que recebo além das aulas?<span></span></summary>
-            <p>O material apresenta um pacote de retrospectivas animadas editáveis, suporte por WhatsApp e um grupo para compartilhamento de materiais.</p>
+            <p>O material apresenta modelos de retrospectivas editáveis, aplicação prática com IA, suporte por WhatsApp e um grupo para compartilhamento de materiais.</p>
           </details>
           <details>
             <summary>Onde a compra é realizada?<span></span></summary>
@@ -469,10 +475,10 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <a class="brand brand--footer brand--with-logo" href="#inicio" aria-label="Voltar ao início">
-        <img class="brand-logo" src="{{ url_for('static', filename='img/logo-retrospectiva.webp') }}" alt="Retrospectiva Animada" width="640" height="640" loading="lazy">
+        <img class="brand-logo" src="{{ url_for('static', filename='img/logo-retrospectiva.png') }}" alt="Retrospectiva Animada" width="640" height="640" loading="lazy">
         <span class="brand-copy"><strong>Retrospectiva</strong><em>Animada</em></span>
       </a>
-      <p>Conteúdo educacional para criação de retrospectivas animadas.</p>
+      <p>Conteúdo educacional para criação de retrospectivas animadas com IA.</p>
       <a href="#duvidas">Dúvidas frequentes</a>
     </div>
     <div class="container footer-legal">
@@ -481,6 +487,63 @@
       <span>© <span data-year></span> Retrospectiva Animada.</span>
     </div>
   </footer>
+
+  <div class="package-modal" data-package-modal hidden>
+    <div class="package-modal__panel" role="dialog" aria-modal="true" aria-labelledby="packages-title" aria-describedby="packages-description">
+      <button class="package-modal__close" type="button" data-packages-close aria-label="Fechar pacotes">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+
+      <div class="package-modal__header">
+        <span class="package-modal__eyebrow">RETROSPECTIVAS PERSONALIZADAS</span>
+        <h2 id="packages-title">Pacotes de retrospectivas que oferecemos</h2>
+        <p id="packages-description">Escolha a opção que combina melhor com a sua comemoração. Todos os pacotes são entregues por link em HD.</p>
+      </div>
+
+      <div class="package-grid">
+        <article class="package-card package-card--bronze">
+          <div class="package-card__top">
+            <span class="package-medal" aria-hidden="true">B</span>
+            <div><small>PACOTE</small><h3>Bronze</h3></div>
+          </div>
+          <strong class="package-price"><sup>R$</sup>150</strong>
+          <p>Inclui retrospectiva com o tema da festa, até <strong>50 fotos</strong>, trechos de desenhos e vídeos caseiros.</p>
+          <span class="package-delivery">Entrega por link em HD</span>
+          <a class="package-whatsapp" href="https://wa.me/555599955723?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Pacote%20Bronze%20de%20R%24150." target="_blank" rel="noopener noreferrer">Quero o Pacote Bronze <span>→</span></a>
+        </article>
+
+        <article class="package-card package-card--silver">
+          <div class="package-card__top">
+            <span class="package-medal" aria-hidden="true">P</span>
+            <div><small>PACOTE</small><h3>Prata</h3></div>
+          </div>
+          <strong class="package-price"><sup>R$</sup>250</strong>
+          <p>Inclui retrospectiva com o tema da festa, até <strong>100 fotos</strong>, trechos de desenhos e vídeos caseiros.</p>
+          <div class="package-bonus"><strong>Brinde:</strong> 1 convite digital personalizado <em>ou</em> 10 fotos a mais.</div>
+          <span class="package-delivery">Entrega por link em HD</span>
+          <a class="package-whatsapp" href="https://wa.me/555599955723?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Pacote%20Prata%20de%20R%24250." target="_blank" rel="noopener noreferrer">Quero o Pacote Prata <span>→</span></a>
+        </article>
+
+        <article class="package-card package-card--gold package-card--featured">
+          <span class="package-featured-label">MAIS COMPLETO</span>
+          <div class="package-card__top">
+            <span class="package-medal" aria-hidden="true">O</span>
+            <div><small>PACOTE</small><h3>Ouro</h3></div>
+          </div>
+          <strong class="package-price"><sup>R$</sup>300</strong>
+          <p>Inclui retrospectiva com o tema da festa, até <strong>150 fotos</strong>, trechos de desenhos e vídeos caseiros.</p>
+          <div class="package-bonus"><strong>Incluso:</strong> narração profissional com locutor + 1 convite digital personalizado <em>ou</em> 10 fotos.</div>
+          <span class="package-delivery">Entrega por link em HD</span>
+          <a class="package-whatsapp" href="https://wa.me/555599955723?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Pacote%20Ouro%20de%20R%24300." target="_blank" rel="noopener noreferrer">Quero o Pacote Ouro <span>→</span></a>
+        </article>
+      </div>
+
+      <div class="package-modal__footer">
+        <p>Caso tenha alguma dúvida ou queira informações adicionais, fique à vontade para perguntar!</p>
+        <a href="https://wa.me/555599955723" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
 
   <div class="mobile-buy-bar" aria-label="Oferta do curso">
     <div><small>Pagamento único</small><strong>R$ 97</strong></div>

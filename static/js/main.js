@@ -43,6 +43,54 @@
     }, { once: true });
   });
 
+  const packagesModal = document.querySelector("[data-package-modal]");
+  const packageOpeners = document.querySelectorAll("[data-packages-open]");
+  const packageCloser = document.querySelector("[data-packages-close]");
+  let lastFocusedElement = null;
+  let closeTimer = null;
+
+  const openPackages = () => {
+    if (!packagesModal) return;
+    if (closeTimer) window.clearTimeout(closeTimer);
+    lastFocusedElement = document.activeElement;
+    packagesModal.hidden = false;
+    document.body.classList.add("modal-open");
+    window.requestAnimationFrame(() => {
+      packagesModal.classList.add("is-open");
+      packageCloser?.focus();
+    });
+  };
+
+  const closePackages = () => {
+    if (!packagesModal || packagesModal.hidden) return;
+    packagesModal.classList.remove("is-open");
+    document.body.classList.remove("modal-open");
+
+    const finish = () => {
+      packagesModal.hidden = true;
+      if (lastFocusedElement instanceof HTMLElement) lastFocusedElement.focus();
+    };
+
+    if (reduceMotion) {
+      finish();
+    } else {
+      closeTimer = window.setTimeout(finish, 220);
+    }
+  };
+
+  packageOpeners.forEach((button) => button.addEventListener("click", openPackages));
+  packageCloser?.addEventListener("click", closePackages);
+
+  packagesModal?.addEventListener("click", (event) => {
+    if (event.target === packagesModal) closePackages();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && packagesModal && !packagesModal.hidden) {
+      closePackages();
+    }
+  });
+
   const revealItems = document.querySelectorAll(".reveal");
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
